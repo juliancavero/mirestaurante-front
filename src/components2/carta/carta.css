@@ -1,0 +1,42 @@
+.cartaContainer{
+    background-color: antiquewhite;
+    text-align: center;
+}
+.cartaContainer td::first-letter{
+    text-transform: capitalize;
+}
+.cartaContainer td{
+    text-transform: lowercase;
+}
+
+.cartaContainer .modifyCartaButton{
+    font-size: 2em;
+}
+
+.cartaContainer img{
+    padding: 0.1em;
+    width: 90%;
+}
+
+
+
+.table{
+    text-align: center;
+}
+.title{
+    font-weight: bold;
+    background-color: rgb(158, 255, 78);
+}
+.content{
+    background-color: rgb(204, 238, 184);
+}
+
+
+.popup-window{
+    font-size: 2em;
+    background-color: rgb(165, 228, 137);
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border: 4px solid black;
+}

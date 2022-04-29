@@ -1,19 +1,16 @@
-import { url } from "../utils/fetchData";
+import { ip } from "../utils/fetchData";
 import { ItemResponse } from "../utils/types";
 
 
 export function CartaItem(props: ItemResponse){
 
-    const { _id, name, price, photo } = props;
+    const { name, price, photo } = props;
     
     return (
-        <div>
-            <tr className="content">
-                <td hidden>{_id.toString()}</td>
-                <td>{name}</td>
-                <td>{price} €</td>
-                <td><img alt={name} src={url+'/public/images/'+photo}></img></td>
+            <tr className="row content">
+                <td className="col-md-6 m-auto">{name}</td>
+                <td className="col-md-3 m-auto">{price} €</td>
+                <td className="col-md-3"><img className="cartaImage" alt={name} src={ip+'/statics/'+photo}></img></td>
             </tr>
-        </div>
     )
 }

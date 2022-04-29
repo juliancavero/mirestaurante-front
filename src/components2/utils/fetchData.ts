@@ -1,15 +1,15 @@
-import type { CartaType } from "../carta/carta";
-import type { InsertNewItemType } from "../carta/carta";
-import { NewOrderType } from "../orders/newOrder";
-import { OrderAnswerType } from "../payOrders/detailedOrder";
-import { orderType } from "../payOrders/payOrders";
-import { TableType } from "../reservations/table";
+import  { CartaType, CategoriaType } from "./types";
+import { NewItemType } from "./types";
+import { NewOrderType } from "./types";
+import { OrderAnswerType } from "./types";
+import { orderType } from "./types";
+import { TableType } from "./types";
 
 type CategoriesType = string[];
 
-const ip = 'http://localhost';
-const port = '3099';
-export const url = ip +':'+ port;
+export const ip = 'http://api.mirestaurante.teamcamp.ovh';
+const port = '4040';
+const url = ip +':'+ port;
 
 async function fetchData<Parameters, Response>(
     method: ('GET' | 'POST' | 'PUT' | 'DELETE'),
@@ -41,8 +41,8 @@ export function genericFetch(){
         return fetchData<CartaType, CategoriesType>('GET', '/cartaCategories')
     }
 
-    async function postNewItem(bod: InsertNewItemType): Promise<InsertNewItemType>{
-        return fetchData<InsertNewItemType, InsertNewItemType>('POST', '/carta/new', bod)
+    async function postNewItem(bod: NewItemType): Promise<NewItemType>{
+        return fetchData<NewItemType, NewItemType>('POST', '/carta/new', bod)
     }
 
     async function postNewOrder(bod: NewOrderType): Promise<NewOrderType>{
@@ -68,6 +68,9 @@ export function genericFetch(){
     async function putUpdateReservation(bod: TableType): Promise<TableType>{
         return fetchData<TableType, TableType>('PUT', '/reservations/update', bod)
     }
+    async function postNewCategory(bod: CategoriaType): Promise<CategoriaType>{
+        return fetchData<CategoriaType, CategoriaType>('POST', '/carta/newCategory', bod)
+    }
 
     async function postNewItemPhoto(bod: FormData): Promise<Response>{
         const response = await fetch(`${url}/cartaItemPhoto`, {
@@ -87,6 +90,7 @@ export function genericFetch(){
         getAllReservations,
         putUpdateReservation,
         postNewItemPhoto,
-        getTakenReservations
+        getTakenReservations,
+        postNewCategory
     }
 }

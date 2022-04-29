@@ -7,8 +7,8 @@ import './carta.css';
 type props = {
     setVisibility: (val: boolean) =>  void;
 }
-export function NewItemWindow({setVisibility}: props){
-    const { getCartaCategories, postNewItem, postNewItemPhoto } = genericFetch();
+export function NewCategoryWindow({setVisibility}: props){
+    const { getCartaCategories, postNewCategory } = genericFetch();
     
     const [ categories, setCategories ] = useState<string[]>();
     const [ itemPhoto, setItemPhoto ] = useState<File>();

@@ -23,3 +23,35 @@ export type Item = {
     photo: string;
 }
 
+export type NewOrderType = {
+    name: string;
+    items: ItemSendType[];
+}
+
+export type ItemSendType = {
+    name: string;
+    price: number;
+    photo: string;
+}
+
+export type OrderAnswerType = {
+    _id: ObjectId,
+    name: string,
+    items: Item[],
+    totalCost: number
+}
+
+export type orderType = {
+    _id: ObjectId;
+    name: string,
+    items: Item[];
+    totalCost: number;
+}
+
+export type TableType = {
+    id: number;
+    status: "Available" | "Reserved" | "Taken";
+    size: number;
+    name?: string | undefined;
+}
+

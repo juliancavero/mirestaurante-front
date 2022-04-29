@@ -6,7 +6,7 @@ import { Camarero } from './components/camarero';
 import { Manager } from './components/manager';
 import { Boss } from './components/boss';
 import { Reservas } from './components/reservations/reservas';
-import { Carta } from './components/carta/carta';
+import { Carta } from './components2/carta/carta';
 import { NewOrder } from './components/orders/newOrder';
 import { PayOrders } from './components/payOrders/payOrders';
 import { DetailedOrder } from './components/payOrders/detailedOrder';

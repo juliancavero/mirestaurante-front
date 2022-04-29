@@ -3,13 +3,15 @@ import { genericFetch } from "../utils/fetchData";
 import { CartaType } from "../utils/types";
 import { CartaCategory } from "./cartaCategory";
 import { NewItemWindow } from "./newItemWindow";
-
+import Table from 'react-bootstrap/Table';
+import { NewCategoryWindow } from "./newCategoryWindow";
 
 export function Carta(){
     const { getCartaData } = genericFetch();
     
     const [ carta, setCarta ] = useState<CartaType>([]);
     const [ newItemWindow, setNewItemWindow ] = useState(false);
+    const [ newCategoryWindow, setNewCategoryWindow ] = useState(false);
 
     useEffect(() => {
         getCartaData().then(response => setCarta(response));
@@ -17,18 +19,20 @@ export function Carta(){
 
     return (
         <div className="cartaContainer">
-            <button onClick={() => setNewItemWindow(true)}>Añadir Item</button>
+            <button id='addNewItem' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Item</button>
+            <button id='addNewCategory' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Categoría</button>
 
             { newItemWindow ? <NewItemWindow setVisibility={setNewItemWindow} /> : null }
+            { newCategoryWindow ? <NewCategoryWindow setVisibility={setNewCategoryWindow} /> : null }
 
-            <div id='carta'>
-                <table>
+            <div className="container" id='carta'>
+                <Table responsive striped bordered hover>
                 {
                     carta.map((category) => (
                         <CartaCategory name={category.name} items={category.items} />
                     ))
                 }
-                </table>
+                </Table>
             </div>
         </div>
     )

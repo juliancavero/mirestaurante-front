@@ -8,9 +8,9 @@ export function CartaCategory(props: CategoriaType){
 
     return (
         <div>
-            <th className="title" colSpan={3}>
-                {name}
-            </th>
+            <tr className="row title">
+                <td className="col-md-12" colSpan={3}>{name}</td>
+            </tr>
             {
                 items.map((item) => (
                     <CartaItem
