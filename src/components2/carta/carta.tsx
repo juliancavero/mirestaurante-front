@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { genericFetch } from "../utils/fetchData";
 import { CartaType } from "../utils/types";

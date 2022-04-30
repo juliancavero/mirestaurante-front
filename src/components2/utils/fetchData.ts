@@ -1,4 +1,4 @@
-import  { CartaType, CategoriaType, NewCategoriaType } from "./types";
+import  { CartaType, NewCategoriaType } from "./types";
 import { NewItemType } from "./types";
 import { NewOrderType } from "./types";
 import { OrderAnswerType } from "./types";

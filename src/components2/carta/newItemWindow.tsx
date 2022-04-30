@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {  FormEvent, useEffect, useState } from "react";
 import { genericFetch } from "../utils/fetchData";
 import { NewItemType } from "../utils/types";
@@ -29,9 +30,6 @@ export function NewItemWindow({setVisibility}: props){
         }
     }
     
-    function alert(message: string){
-        window.alert(message);
-    }
     function checkEmptyData(){
         if(!itemCat) {
             window.alert('Category not selected')

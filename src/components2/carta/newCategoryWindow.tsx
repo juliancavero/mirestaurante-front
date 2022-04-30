@@ -1,5 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {  FormEvent, useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
 import { genericFetch } from "../utils/fetchData";
 import './carta.css';
 
