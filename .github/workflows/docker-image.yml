@@ -27,7 +27,7 @@ jobs:
   build:
     needs: test
     env:
-      CI: true
+      CI: false
 
     runs-on: ubuntu-latest
 
