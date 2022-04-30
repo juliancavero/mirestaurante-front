@@ -7,9 +7,8 @@ import { TableType } from "../reservations/table";
 
 type CategoriesType = string[];
 
-const ip = 'http://localhost';
-const port = '3099';
-export const url = ip +':'+ port;
+const ip = 'https://api.mirestaurante.teamcamp.ovh';
+export const url = ip;
 
 async function fetchData<Parameters, Response>(
     method: ('GET' | 'POST' | 'PUT' | 'DELETE'),

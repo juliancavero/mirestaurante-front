@@ -7,7 +7,7 @@ import { TableType } from "./types";
 
 type CategoriesType = string[];
 
-export const ip = 'http://api.mirestaurante.teamcamp.ovh';
+export const ip = 'https://api.mirestaurante.teamcamp.ovh';
 
 const url = ip;
 
