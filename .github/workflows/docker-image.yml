@@ -39,9 +39,11 @@ jobs:
           node-version: 16.x
       - run: npm ci
       - run: npm run build --if-present
-      - run: mkdir ../build
-      - run: cp -TR ./build ../build
-      - run: tar -cvf deploy.tar ../build/
+      - run: ls
+      - run: mkdir ../building
+      - run: cp -TR ./build ../building
+      - run: ls
+      - run: tar -cvf deploy.tar ../building/
 
 
   deploy:
@@ -61,3 +63,4 @@ jobs:
           port: ${{ secrets.VPS_SSH_PORT }}
           source: "deploy.tar"
           target: "mirestaurante/frontend"
+          rm: true
