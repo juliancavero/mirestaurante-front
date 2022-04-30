@@ -1,4 +1,4 @@
-import  { CartaType, CategoriaType } from "./types";
+import  { CartaType, CategoriaType, NewCategoriaType } from "./types";
 import { NewItemType } from "./types";
 import { NewOrderType } from "./types";
 import { OrderAnswerType } from "./types";
@@ -41,8 +41,8 @@ export function genericFetch(){
         return fetchData<CartaType, CategoriesType>('GET', '/cartaCategories')
     }
 
-    async function postNewItem(bod: NewItemType): Promise<NewItemType>{
-        return fetchData<NewItemType, NewItemType>('POST', '/carta/new', bod)
+    async function postNewItem(bod: NewItemType): Promise<Response>{
+        return fetchData<NewItemType, Response>('POST', '/carta/new', bod)
     }
 
     async function postNewOrder(bod: NewOrderType): Promise<NewOrderType>{
@@ -68,8 +68,8 @@ export function genericFetch(){
     async function putUpdateReservation(bod: TableType): Promise<TableType>{
         return fetchData<TableType, TableType>('PUT', '/reservations/update', bod)
     }
-    async function postNewCategory(bod: CategoriaType): Promise<CategoriaType>{
-        return fetchData<CategoriaType, CategoriaType>('POST', '/carta/newCategory', bod)
+    async function postNewCategory(bod: NewCategoriaType): Promise<Response>{
+        return fetchData<NewCategoriaType, Response>('POST', '/carta/newCategory', bod)
     }
 
     async function postNewItemPhoto(bod: FormData): Promise<Response>{

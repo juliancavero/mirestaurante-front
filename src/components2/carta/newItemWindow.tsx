@@ -74,6 +74,7 @@ export function NewItemWindow({setVisibility}: props){
             formData.append("cartaItemPhoto", itemPhoto);
             postNewItemPhoto(formData).then(response => {
                 postNewItem(itemBody).then(response => {
+                    if(response.ok) {window.alert("holaa")}
                     window.location.reload();
                 })
             });

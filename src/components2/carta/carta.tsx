@@ -20,13 +20,13 @@ export function Carta(){
     return (
         <div className="cartaContainer">
             <button id='addNewItem' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Item</button>
-            <button id='addNewCategory' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Categoría</button>
+            <button id='addNewCategory' className='modifyCartaButton' onClick={() => setNewCategoryWindow(true)}>Añadir Categoría</button>
 
             { newItemWindow ? <NewItemWindow setVisibility={setNewItemWindow} /> : null }
             { newCategoryWindow ? <NewCategoryWindow setVisibility={setNewCategoryWindow} /> : null }
 
             <div className="container" id='carta'>
-                <Table responsive striped bordered hover>
+                <Table responsive striped hover>
                 {
                     carta.map((category) => (
                         <CartaCategory name={category.name} items={category.items} />

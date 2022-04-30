@@ -1,6 +1,6 @@
 import {  FormEvent, useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import { genericFetch } from "../utils/fetchData";
-import { NewItemType } from "../utils/types";
 import './carta.css';
 
 
@@ -11,101 +11,61 @@ export function NewCategoryWindow({setVisibility}: props){
     const { getCartaCategories, postNewCategory } = genericFetch();
     
     const [ categories, setCategories ] = useState<string[]>();
-    const [ itemPhoto, setItemPhoto ] = useState<File>();
-    const [ itemCat, setItemCat ] = useState<string>();
-    const [ itemName, setItemName ] = useState<string>();
-    const [ itemPrice, setItemPrice ] = useState<number>();
-    const [ itemPhotoUrl, setItemPhotoUrl ] = useState<string>();
+    const [ newCategoryName, setNewCategoryName ] = useState<string>();
 
     useEffect(() => {
         getCartaCategories().then(response => setCategories(response));
     }, [])
-
-
-    function addFile(files: FileList | null) {
-        if(files){
-            setItemPhoto(files[0]);
-            setItemPhotoUrl(files[0].name);
-        }
-    }
     
-    function alert(message: string){
-        window.alert(message);
-    }
     function checkEmptyData(){
-        if(!itemCat) {
-            window.alert('Category not selected')
-            return false;
-        }
-        if(!itemName) {
-            window.alert('Name not selected')
-            return false;
-        }
-        if(!itemPrice) {
-            window.alert('Price not selected')
-            return false;
-        }
-        if(!itemPhotoUrl) {
-            window.alert('Something went wrong with the photo')
-            return false;
-        }
-        if(!itemPhoto) {
-            window.alert('Missing photo')
+        if(!newCategoryName) {
+            window.alert('Category cannot be empty!')
             return false;
         }
         return true;
     }
+
     function onSubmit(event: FormEvent){
         event.preventDefault();
 
         if(!checkEmptyData()) return;
 
-        if(itemCat && itemName && itemPrice && itemPhotoUrl && itemPhoto){
-            const itemBody: NewItemType = {
-                name: itemCat,
-                items: {
-                    name: itemName,
-                    price: itemPrice,
-                    photo: itemPhotoUrl
-                }
+        if(newCategoryName){
+            const itemBody = {
+                name: newCategoryName
             }
-
-            var formData = new FormData();
-            formData.append("cartaItemPhoto", itemPhoto);
-            postNewItemPhoto(formData).then(response => {
-                postNewItem(itemBody).then(response => {
-                    window.location.reload();
-                })
-            });
-            
+            postNewCategory(itemBody).then(response => {
+                (response.ok) ? 
+                window.alert('Categoría creada correctamente') :
+                window.alert('Algo falló en la creación de la categoría');
+                window.location.reload();
+            })            
         }
     }
 
     return (
         <div className="popup-window">
             <div className="row" id='firstRow'>
-                <h1 className="col-lg-9 m-auto">Insertar nuevo item en Carta</h1>
+                <h1 className="col-lg-9 m-auto">Crear nueva categoría en Carta</h1>
                 <button className='col-lg-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
             </div>
-            <div className="row" id='secondRow'>
-                <label className="col-lg-4" htmlFor="catPlato">Categoría</label>
-                <select className="col-lg-8" onChange={(event) => setItemCat(event.target.value)}>
-                    <option></option>
+
+            <div className="row">
+                <div className="col-md-8 m-auto">
+                <table className="table">
+                    <tr><th>Categorías existentes actualmente</th></tr>
                     {
-                        categories?.map((category) => <option>{category}</option>)
+                        categories?.map((cat) => <tr className="row fila"><td className="col-lg-8 m-auto">{cat}</td></tr>)
                     }
-                </select>
+                </table>
+                </div>
+                
             </div>
-            <div className="row m-3">
-                <label className="col-lg-2" htmlFor="nombrePlato">Nombre</label>
-                <input className="col-lg-4" onChange={(event) => setItemName(event.target.value)} id='nombrePlato' placeholder="Nombre del plato..."></input>
-                <label className="col-lg-2" htmlFor="precioPlato">Precio</label>
-                <input className="col-lg-4" onChange={(event) => setItemPrice(parseFloat(event.target.value))} id='precioPlato' type='number'></input>
-            </div>
+            
             <div className="row mt-4 m-3" id='thirdRow'>
-                <form encType="multipart/form-data" action="" onSubmit={(event) => onSubmit(event)}>
-                    <input className="col-lg-6"  onChange={(event) => addFile(event.target.files)} type="file"/>
-                    <button className="col-lg-6" type='submit' >Subir Item</button>
+                <form action="" onSubmit={(event) => onSubmit(event)}>
+                    <input className="col-lg-6"  onChange={(event) => setNewCategoryName(event.target.value)} type='text' />
+                    <button className="col-lg-6" type='submit' >Crear nueva categoría</button>
                 </form>
             </div>
         </div>

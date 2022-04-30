@@ -14,11 +14,16 @@
 }
 
 .cartaContainer img{
-    padding: 0.1em;
-    width: 90%;
+    width: 3em;
 }
 
+.closeButton{
+    background-color: rgb(255, 80, 80);
+}
 
+.fila {
+    
+}
 
 .table{
     text-align: center;
@@ -33,10 +38,16 @@
 
 
 .popup-window{
-    font-size: 2em;
     background-color: rgb(165, 228, 137);
     position: absolute;
     top: 20%;
     left: 20%;
     border: 4px solid black;
+}
+.popup-window label, .popup-window input, .popup-window select, .popup-window button{
+    font-size: 2em;
+}
+
+.popup-window button[type="submit"]{
+    background-color: rgb(70, 211, 70);
 }

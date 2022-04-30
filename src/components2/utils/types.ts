@@ -7,6 +7,9 @@ export type CategoriaType = {
     name: string;
     items: ItemResponse[];
 }
+export type NewCategoriaType = {
+    name: string;
+}
 
 export type ItemResponse = Item & {
     _id: ObjectId;
