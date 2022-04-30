@@ -39,7 +39,7 @@ export function NewOrderCategory(props: Props) {
 
     return (
         <div id='newOrderCategory'>
-            <button className="categoryButton" onClick={() => changeState()}><h1>{props.cat.nombre}</h1></button>
+            <button className="categoryButton" onClick={() => changeState()}><h1>{props.cat.name}</h1></button>
             {expanded ? renderItems() : null}
         </div>
     )

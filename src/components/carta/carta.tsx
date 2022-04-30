@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+
 import React, { useEffect, useState } from "react";
 import { genericFetch } from "../miscelaneous/fetchData";
 import './carta.css';
@@ -8,7 +8,7 @@ import { NewCartaItemWindow } from "./newCartaItemWindow";
 export type CartaType = Categoria[];
 
 export type Categoria = {
-    nombre: string;
+    name: string;
     items: Item[];
 }
 export type InsertNewItemType = {

@@ -10,7 +10,7 @@ export function CartaCategory (props: props) {
     return (
         <div>
             <th className='title' colSpan={3}>
-                {props.cat.nombre}
+                {props.cat.name}
             </th>
             {props.cat.items.map((item) => 
                 <CartaItem it={item}/>
