@@ -47,7 +47,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - run: ls
+      - run: ls ../
       - name: Deploy files
         uses: appleboy/scp-action@master
         with:
