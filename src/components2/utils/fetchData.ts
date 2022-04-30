@@ -8,8 +8,8 @@ import { TableType } from "./types";
 type CategoriesType = string[];
 
 export const ip = 'http://api.mirestaurante.teamcamp.ovh';
-const port = '4040';
-const url = ip +':'+ port;
+
+const url = ip;
 
 async function fetchData<Parameters, Response>(
     method: ('GET' | 'POST' | 'PUT' | 'DELETE'),
