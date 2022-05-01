@@ -27,7 +27,7 @@ export function Carta(){
             { newCategoryWindow ? <NewCategoryWindow setVisibility={setNewCategoryWindow} /> : null }
 
             <div className="container" id='carta'>
-                <Table responsive striped hover>
+                <Table id='tablaCarta' responsive>
                 {
                     carta.map((category) => (
                         <CartaCategory name={category.name} items={category.items} />

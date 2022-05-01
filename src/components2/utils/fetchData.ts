@@ -27,8 +27,15 @@ async function fetchData<Parameters, Response>(
         body,
     });
 
-    const json = await response.json();
-    return json as Response;
+    if(response.ok){
+        const json = await response.json();
+        return json;
+    } else {
+        // CONTROL ERRORES
+        const json = await response.json();
+        return json as Response;
+    }
+    
 }
 
 export function genericFetch(){

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { NewOrderCategory } from "./newOrderCategory"
+import { NewOrderCategory } from "../../components/orders/newOrderCategory"
 import type { CartaType, Item } from "../carta/carta";
 import { genericFetch } from "../miscelaneous/fetchData";
 import { TableType } from "../reservations/table";

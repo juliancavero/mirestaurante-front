@@ -72,7 +72,7 @@ export function NewItemWindow({setVisibility}: props){
             formData.append("cartaItemPhoto", itemPhoto);
             postNewItemPhoto(formData).then(response => {
                 postNewItem(itemBody).then(response => {
-                    if(response.ok) {window.alert("holaa")}
+                    window.alert('Artículo creado correctamente')
                     window.location.reload();
                 })
             });
@@ -84,7 +84,7 @@ export function NewItemWindow({setVisibility}: props){
         <div className="popup-window">
             <div className="row" id='firstRow'>
                 <h1 className="col-lg-9 m-auto">Insertar nuevo item en Carta</h1>
-                <button className='col-lg-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
+                <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
             </div>
             <div className="row" id='secondRow'>
                 <label className="col-lg-4" htmlFor="catPlato">Categoría</label>

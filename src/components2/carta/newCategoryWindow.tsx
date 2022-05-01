@@ -35,9 +35,7 @@ export function NewCategoryWindow({setVisibility}: props){
                 name: newCategoryName
             }
             postNewCategory(itemBody).then(response => {
-                (response.ok) ? 
-                window.alert('Categoría creada correctamente') :
-                window.alert('Algo falló en la creación de la categoría');
+                window.alert('Categoría creada correctamente');
                 window.location.reload();
             })            
         }
@@ -47,17 +45,17 @@ export function NewCategoryWindow({setVisibility}: props){
         <div className="popup-window">
             <div className="row" id='firstRow'>
                 <h1 className="col-lg-9 m-auto">Crear nueva categoría en Carta</h1>
-                <button className='col-lg-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
+                <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
             </div>
 
             <div className="row">
                 <div className="col-md-8 m-auto">
-                <table className="table">
-                    <tr><th>Categorías existentes actualmente</th></tr>
-                    {
-                        categories?.map((cat) => <tr className="row fila"><td className="col-lg-8 m-auto">{cat}</td></tr>)
-                    }
-                </table>
+                    <table className="table existentCategories">
+                        <tr><th>Categorías existentes actualmente</th></tr>
+                        {
+                            categories?.map((cat) => <tr className="row fila m-auto"><td className="col-md-8 m-auto">{cat}</td></tr>)
+                        }
+                    </table>
                 </div>
                 
             </div>
