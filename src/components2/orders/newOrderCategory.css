@@ -26,6 +26,7 @@
 .nombre{
     font-size: 1.5em;
     margin-right: 1em;
+    font-weight: bold;
 }
 li{
     margin-right: 1em;
@@ -33,7 +34,7 @@ li{
     text-transform: capitalize;
 }
 ul{
-    list-style-type: none;
+    list-style-type: square;
 }
 .submitButton{
     font-size: 2.5em;

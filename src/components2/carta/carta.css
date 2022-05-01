@@ -13,10 +13,6 @@
     font-size: 2em;
 }
 
-.cartaContainer img{
-    width: 3em;
-}
-
 .closeButton{
     background-color: rgb(255, 80, 80);
 }
@@ -24,19 +20,27 @@
 .table{
     text-align: center;
 }
+
 table tr td{
     border-bottom-width: 0px !important;
 }
+
+#carta{
+    font-size: 2em;
+}
+
 .title{
     font-weight: bold;
     background-color: rgb(158, 255, 78);
 }
-.content{
-    background-color: rgb(222, 255, 203) !important;
+
+#carta img{
+    display: block;
+    max-width: 100%;
 }
 
-table img{
-    display: block;
+#imgPreview{
+    max-width: 50%;
 }
 
 .popup-window{
@@ -55,7 +59,7 @@ table img{
 }
 
 .fila{
-    background-color: red;
+    background-color: rgb(231, 255, 122);
     width: 70%;
 }
 

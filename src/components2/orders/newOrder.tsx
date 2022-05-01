@@ -13,7 +13,7 @@ export function NewOrder(){
     const [ orderTableId, setOrderTableId ] = useState<number>();
     const [ carta, setCarta ] = useState<CartaType>([]);
     const [ takenTables, setTakenTables ] = useState<TableType[]>();
-    
+    const [ finalPrice, setFinalPrice ] = useState<number>();
     useEffect(() => {
         getAllReservations().then(response => {
             const validTables = response.filter((table) => table.status === "Reserved" || table.status === "Taken");
@@ -23,6 +23,12 @@ export function NewOrder(){
             setCarta(response);
         })
     }, [])
+
+    useEffect(() => {
+        let sum = 0;
+        orderCart.forEach((item) => sum += item.price)
+        setFinalPrice(parseFloat(sum.toFixed(2)));
+    }, [orderCart])
 
     function passOrderCart() {
         return {
@@ -79,14 +85,17 @@ export function NewOrder(){
                     <label className="col-sm-8 nombre" htmlFor="name" >Nombre Cliente</label>
                     <input readOnly required className='nombre col-sm-8' id='name' value={orderName} onBlur={(event) => setOrderName(event.target.value)} />
                 </div>
-                <div className="row">
+                <div className="row my-3">
                     <p id='pedido' className="col-sm-8 nombre">Pedido: </p>
                     <ul className='col-sm-8' >
                         {orderCart.map((ord) => <li>{ord.name}</li>)}
                     </ul>
                     <button type="submit" className="submitButton">¡Oido cocina!</button>
                 </div>
-                
+                <div className="row">
+                    <p className="col-sm-8 nombre">Total pedido:</p>
+                    <h2>- {finalPrice} €</h2>
+                </div>
             </form>
         </div>
     );

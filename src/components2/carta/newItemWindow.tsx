@@ -4,7 +4,6 @@ import { genericFetch } from "../utils/fetchData";
 import { NewItemType } from "../utils/types";
 import './carta.css';
 
-
 type props = {
     setVisibility: (val: boolean) =>  void;
 }
@@ -18,6 +17,12 @@ export function NewItemWindow({setVisibility}: props){
     const [ itemPrice, setItemPrice ] = useState<number>();
     const [ itemPhotoUrl, setItemPhotoUrl ] = useState<string>();
 
+    const [ {src, alt}, setImg ] = useState({
+        src: '',
+        alt: 'Please, upload an image'
+    });
+    const [ imgVisible, setImgVisible ] = useState(false);
+
     useEffect(() => {
         getCartaCategories().then(response => setCategories(response));
     }, [])
@@ -27,6 +32,11 @@ export function NewItemWindow({setVisibility}: props){
         if(files){
             setItemPhoto(files[0]);
             setItemPhotoUrl(files[0].name);
+            setImg({
+                src: URL.createObjectURL(files[0]),
+                alt: files[0].name
+            })
+            setImgVisible(true);
         }
     }
     
@@ -82,31 +92,39 @@ export function NewItemWindow({setVisibility}: props){
 
     return (
         <div className="popup-window">
-            <div className="row" id='firstRow'>
+            <div className="row">
                 <h1 className="col-lg-9 m-auto">Insertar nuevo item en Carta</h1>
                 <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
             </div>
-            <div className="row" id='secondRow'>
-                <label className="col-lg-4" htmlFor="catPlato">Categoría</label>
-                <select className="col-lg-8" onChange={(event) => setItemCat(event.target.value)}>
+            <div className="row my-3 m-auto">
+                <label className="col-3" htmlFor="catPlato">Categoría</label>
+                <select className="col-6" onChange={(event) => setItemCat(event.target.value)}>
                     <option></option>
                     {
                         categories?.map((category) => <option>{category}</option>)
                     }
                 </select>
             </div>
+            
             <div className="row m-3">
                 <label className="col-lg-2" htmlFor="nombrePlato">Nombre</label>
                 <input className="col-lg-4" onChange={(event) => setItemName(event.target.value)} id='nombrePlato' placeholder="Nombre del plato..."></input>
                 <label className="col-lg-2" htmlFor="precioPlato">Precio</label>
                 <input className="col-lg-4" onChange={(event) => setItemPrice(parseFloat(event.target.value))} id='precioPlato' type='number'></input>
             </div>
-            <div className="row mt-4 m-3" id='thirdRow'>
-                <form encType="multipart/form-data" action="" onSubmit={(event) => onSubmit(event)}>
-                    <input className="col-lg-6"  onChange={(event) => addFile(event.target.files)} type="file"/>
-                    <button className="col-lg-6" type='submit' >Subir Item</button>
+            
+                <form encType="multipart/form-data" onSubmit={(event) => onSubmit(event)}>
+                    <div className="row mt-4 m-3">
+                        <input className="col-lg-12"  onChange={(event) => addFile(event.target.files)} type="file"/>
+                    </div>
+                    <div className="row">
+                        { imgVisible ? <img className="col-md-4 m-auto" id='imgPreview' src={src} alt={alt}></img> : null}
+                    </div>
+                    <div className="row my-4">
+                        <button className="col-lg-6 m-auto" type='submit' >Subir Item</button>
+                    </div>
                 </form>
-            </div>
+            
         </div>
     )
 }

@@ -58,3 +58,13 @@ export type TableType = {
     name?: string | undefined;
 }
 
+export type UpdateTableType = {
+    id: number;
+    status: string;
+    size: number;
+    name?: string | undefined;
+}
+
+export type NewTableType = {
+    size: number;
+}
