@@ -1,4 +1,4 @@
-import  { CartaType, NewCategoriaType } from "./types";
+import  { CartaType, NewCategoriaType, UpdateTableType } from "./types";
 import { NewItemType } from "./types";
 import { NewOrderType } from "./types";
 import { OrderAnswerType } from "./types";
@@ -72,8 +72,8 @@ export function genericFetch(){
         return fetchData<string, TableType[]>('GET', `/takenReservations`)
     }
 
-    async function putUpdateReservation(bod: TableType): Promise<TableType>{
-        return fetchData<TableType, TableType>('PUT', '/reservations/update', bod)
+    async function putUpdateReservation(bod: UpdateTableType): Promise<UpdateTableType>{
+        return fetchData<UpdateTableType, UpdateTableType>('PUT', '/reservations/update', bod)
     }
     async function postNewCategory(bod: NewCategoriaType): Promise<Response>{
         return fetchData<NewCategoriaType, Response>('POST', '/carta/newCategory', bod)

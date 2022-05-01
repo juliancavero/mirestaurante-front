@@ -4,7 +4,6 @@ import { genericFetch } from "../utils/fetchData";
 import { NewItemType } from "../utils/types";
 import './carta.css';
 
-
 type props = {
     setVisibility: (val: boolean) =>  void;
 }

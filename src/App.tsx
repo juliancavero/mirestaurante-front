@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Camarero } from './components/camarero';
 import { Manager } from './components/manager';
 import { Boss } from './components/boss';
-import { Reservas } from './components/reservations/reservas';
+import { Reservas } from './components2/reservations/reservas';
 import { Carta } from './components2/carta/carta';
 import { NewOrder } from './components2/orders/newOrder';
 import { PayOrders } from './components/payOrders/payOrders';
