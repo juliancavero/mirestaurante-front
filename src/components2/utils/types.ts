@@ -64,3 +64,7 @@ export type UpdateTableType = {
     size: number;
     name?: string | undefined;
 }
+
+export type NewTableType = {
+    size: number;
+}

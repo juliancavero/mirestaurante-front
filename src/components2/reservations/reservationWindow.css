@@ -49,3 +49,7 @@ button.Reserved{
 .eachTable{
     margin: 1.5em;
 }
+
+.addNewTableButton{
+    font-size: 2em;
+}
