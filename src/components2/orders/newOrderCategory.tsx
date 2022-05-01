@@ -1,8 +1,6 @@
 import { useState } from "react"
-import type { Categoria } from "../../components/carta/carta";
-import { OrderItem } from "../../components/orders/orderItem";
-import './newOrderCategory.css';
-import type {Item} from '../../components/carta/carta'; 
+import { OrderItem } from './orderItem';
+import { Item, CategoriaType } from '../utils/types';
 
 
 type t10 = {
@@ -11,8 +9,8 @@ type t10 = {
 }
 
 type Props = {
-    cat: Categoria;
-    expFunc: t10;
+    cat: CategoriaType;
+    passOrderCart: t10;
 }
 
 export function NewOrderCategory(props: Props) {
@@ -31,7 +29,7 @@ export function NewOrderCategory(props: Props) {
         return (
             <div className="catItems">
                 {props.cat.items.map((item) =>
-                    <OrderItem it={item} expFunc={props.expFunc}/>
+                    <OrderItem it={item} expFunc={props.passOrderCart}/>
                 )}
             </div>
         )

@@ -24,14 +24,20 @@
 .table{
     text-align: center;
 }
+table tr td{
+    border-bottom-width: 0px !important;
+}
 .title{
     font-weight: bold;
     background-color: rgb(158, 255, 78);
 }
 .content{
-    background-color: rgb(204, 238, 184);
+    background-color: rgb(222, 255, 203) !important;
 }
 
+table img{
+    display: block;
+}
 
 .popup-window{
     background-color: rgb(165, 228, 137);
@@ -46,4 +52,13 @@
 
 .popup-window button[type="submit"]{
     background-color: rgb(70, 211, 70);
+}
+
+.fila{
+    background-color: red;
+    width: 70%;
+}
+
+.existentCategories{
+    font-size: 2em;
 }
