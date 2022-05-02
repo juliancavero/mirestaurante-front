@@ -33,17 +33,9 @@ select{
     flex-wrap: wrap;
 }
 
-button.Available {
-    background-color: rgb(0, 184, 0);
-}
-button.Taken {
-    background-color: rgb(124, 0, 0);
-}
-button.Reserved{
-    background-color: rgb(187, 187, 187);
-}
+
 .buttonTable{
-    font-size: 3em;
+    font-size: 3em !important;
 }
 
 .eachTable{
@@ -52,4 +44,9 @@ button.Reserved{
 
 .addNewTableButton{
     font-size: 2em;
+}
+
+.btn-darkRed{
+    background-color: rgb(165, 0, 0) !important;
+    color: white !important; 
 }

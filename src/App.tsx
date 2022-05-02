@@ -1,14 +1,18 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
-import { Camarero } from './components/camarero';
-import { Manager } from './components/manager';
-import { Boss } from './components/boss';
+import { Camarero } from './components2/main/camarero';
+import { Manager } from './components2/main/manager';
+import { Boss } from './components2/main/boss';
 import { Reservas } from './components2/reservations/reservas';
 import { Carta } from './components2/carta/carta';
 import { NewOrder } from './components2/orders/newOrder';
-import { PayOrders } from './components/payOrders/payOrders';
-import { DetailedOrder } from './components/payOrders/detailedOrder';
+import { PayOrders } from './components2/payOrders/payOrders';
+import { DetailedOrder } from './components2/payOrders/detailedOrder';
+import { HomeMenu } from './components2/main/homeMenu';
+import { ReactComponent as HomeSVG } from './homeIcon.svg';
+import { ReactComponent as MiRestauranteLogo } from './mirestaurantelogo.svg';
+import { GoBackButton } from './components2/main/goBack';
 
 
 function App() {
@@ -17,13 +21,10 @@ function App() {
     <Router>
       <div>
         <nav>
-          <div className="navBar">
-            
-              <Link className='link' to='/camarero'>Camarero</Link>
-              <Link className='link' to='/manager'>Manager</Link>
-              <Link className='link' to='/boss'>Boss</Link>
-              <Link className='link' to='/'>Home</Link>
-            
+          <div className="navBar d-flex justify-content-around">
+            <div className='m-auto'><Link className='link' to='/'><HomeSVG /></Link></div>
+            <div className='m-auto'><MiRestauranteLogo /></div>
+            <div className='m-auto'><GoBackButton /></div>
           </div>
         </nav>
 
@@ -36,6 +37,7 @@ function App() {
         <Route path='/camarero/caja/:orderid' element={<DetailedOrder />} />
         <Route path='/manager' element={<Manager />}/>
         <Route path='/boss' element={<Boss />}/>
+        <Route path='/' element={<HomeMenu />}/>
       </Routes>
 
       </div>

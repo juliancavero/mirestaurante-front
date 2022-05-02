@@ -8,7 +8,7 @@ export function CartaCategory(props: CategoriaType){
 
     return (
         <div>
-            <tr className="row title">
+            <tr className="row title bg-success">
                 <td className="col-md-12" colSpan={3}>{name}</td>
             </tr>
             {

@@ -1,8 +1,8 @@
-import  { CartaType, NewCategoriaType, NewTableType, UpdateTableType } from "./types";
+import  { CartaType, NewCategoriaType, NewTableType, PayOrderType, UpdateTableType } from "./types";
 import { NewItemType } from "./types";
 import { NewOrderType } from "./types";
 import { OrderAnswerType } from "./types";
-import { orderType } from "./types";
+import { OrderType } from "./types";
 import { TableType } from "./types";
 
 type CategoriesType = string[];
@@ -60,8 +60,8 @@ export function genericFetch(){
         return fetchData<string, OrderAnswerType>('GET', `/orders/${bod}`)
     }
 
-    async function getAllOrders(): Promise<orderType[]>{
-        return fetchData<string, orderType[]>('GET', `/orders`)
+    async function getAllOrders(): Promise<OrderType[]>{
+        return fetchData<string, OrderType[]>('GET', `/orders`)
     }
 
     async function getAllReservations(): Promise<TableType[]>{
@@ -81,6 +81,10 @@ export function genericFetch(){
     }
     async function postNewCategory(bod: NewCategoriaType): Promise<Response>{
         return fetchData<NewCategoriaType, Response>('POST', '/carta/newCategory', bod)
+    }
+
+    async function payOrderTable(bod: PayOrderType): Promise<Response>{
+        return fetchData<PayOrderType, Response>('DELETE', '/orders/delete', bod)
     }
 
     async function postNewItemPhoto(bod: FormData): Promise<Response>{
@@ -103,6 +107,7 @@ export function genericFetch(){
         postNewItemPhoto,
         getTakenReservations,
         postNewCategory,
-        postNewReservation
+        postNewReservation,
+        payOrderTable
     }
 }

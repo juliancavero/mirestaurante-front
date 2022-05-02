@@ -40,13 +40,15 @@ export type ItemSendType = {
 export type OrderAnswerType = {
     _id: ObjectId,
     name: string,
+    tableId: number,
     items: Item[],
     totalCost: number
 }
 
-export type orderType = {
+export type OrderType = {
     _id: ObjectId;
-    name: string,
+    name: string;
+    tableId: number;
     items: Item[];
     totalCost: number;
 }
@@ -67,4 +69,8 @@ export type UpdateTableType = {
 
 export type NewTableType = {
     size: number;
+}
+
+export type PayOrderType = {
+    tableId: number;
 }

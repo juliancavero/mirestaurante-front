@@ -1,7 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {  FormEvent, useEffect, useState } from "react";
+import { fadeInAnimation } from "../estilos";
 import { genericFetch } from "../utils/fetchData";
 import './carta.css';
+
+
 
 
 type props = {
@@ -42,7 +45,7 @@ export function NewCategoryWindow({setVisibility}: props){
     }
 
     return (
-        <div className="popup-window">
+        <div className={'popup-window ' + fadeInAnimation}>
             <div className="row" id='firstRow'>
                 <h1 className="col-lg-9 m-auto">Crear nueva categoría en Carta</h1>
                 <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
@@ -63,7 +66,7 @@ export function NewCategoryWindow({setVisibility}: props){
             <div className="row mt-4 m-3" id='thirdRow'>
                 <form action="" onSubmit={(event) => onSubmit(event)}>
                     <input className="col-lg-6"  onChange={(event) => setNewCategoryName(event.target.value)} type='text' />
-                    <button className="col-lg-6" type='submit' >Crear nueva categoría</button>
+                    <button className="col-lg-6 btn-success" type='submit' >Crear nueva categoría</button>
                 </form>
             </div>
         </div>

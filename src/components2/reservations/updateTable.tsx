@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { fadeInAnimation } from "../estilos";
 import { genericFetch } from "../utils/fetchData";
 import { TableType } from "../utils/types"
 
@@ -57,7 +58,7 @@ export function UpdateTable({props, closeWindow}: TablePropsType){
     }, [newStatus])
 
     return (
-        <div className="popup-window">
+        <div className={"popup-window " + fadeInAnimation}>
                 <div className="row">
                     <h1 className="col-lg-9 m-auto">Mesa {id}</h1>
                     <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => closeWindow(false)}>X</button>
@@ -77,7 +78,7 @@ export function UpdateTable({props, closeWindow}: TablePropsType){
                 
 
                 {changeReservation ? 
-                    <div>
+                    <div className={fadeInAnimation}>
                         <form onSubmit={onSubmit}>
                             <div className="row my-3">
                                 <select className="col-lg-6 m-auto" onChange={onChange}>

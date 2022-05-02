@@ -53,8 +53,8 @@ export function NewOrder(){
         event.preventDefault();
         if(orderTableId && orderName && orderCart){
             const body = {
-                tableId: orderTableId,
                 name: orderName,
+                tableId: orderTableId,
                 items: orderCart
             }
             if(orderTableId){
@@ -90,7 +90,7 @@ export function NewOrder(){
                     <ul className='col-sm-8' >
                         {orderCart.map((ord) => <li>{ord.name}</li>)}
                     </ul>
-                    <button type="submit" className="submitButton">¡Oido cocina!</button>
+                    <button type="submit" className="btn btn-success ">¡Oido cocina!</button>
                 </div>
                 <div className="row">
                     <p className="col-sm-8 nombre">Total pedido:</p>
