@@ -32,7 +32,7 @@ export function PayOrders() {
                         <h2 className="h1 col-md-2 m-auto">Mesa {order.tableId}</h2>
                         <h2 className="col-md-3 m-auto">Nombre: {order.name}</h2>
                         <h2 className="col-md-3 m-auto">Importe: {order.totalCost}</h2>
-                        <button className="h2 py-2 col-md-4 m-auto" onClick={() => goToCashier(order._id)}>Pasar por caja</button>
+                        <button className="h2 py-2 col-md-4 m-auto btn-success" onClick={() => goToCashier(order._id)}>Pasar por caja</button>
                     </div>
                 )
             }

@@ -1,5 +1,5 @@
 .eachOrder{
-    background-color: rgb(122, 226, 136);
+    background-color: rgba(39, 110, 6, 0.514);
     border: 5px solid black;
     padding: 1em;
 }
@@ -17,13 +17,13 @@
 }
 
 #firstCol{
-    background-color: rgb(176, 255, 176);
+    background-color: rgba(39, 110, 6, 0.514);
     padding: 1em 2.5em;
     margin: 0em 3em;
 }
 
 #secondCol{
-    background-color: rgb(216, 158, 255);
+    background-color: rgba(39, 110, 6, 0.514);
     padding: 1em 2.5em;
     margin: 0em 3em;
     height: fit-content;

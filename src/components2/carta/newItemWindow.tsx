@@ -121,7 +121,7 @@ export function NewItemWindow({setVisibility}: props){
                         { imgVisible ? <img className="col-md-4 m-auto" id='imgPreview' src={src} alt={alt}></img> : null}
                     </div>
                     <div className="row my-4">
-                        <button className="col-lg-6 m-auto" type='submit' >Subir Item</button>
+                        <button className="col-lg-6 m-auto btn-success" type='submit' >Subir Item</button>
                     </div>
                 </form>
             

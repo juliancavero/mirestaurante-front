@@ -27,7 +27,7 @@ export function NewOrderCategory(props: Props) {
 
     function renderItems(){
         return (
-            <div className="catItems">
+            <div className="catItems bg-">
                 {props.cat.items.map((item) =>
                     <OrderItem it={item} expFunc={props.passOrderCart}/>
                 )}
@@ -37,7 +37,7 @@ export function NewOrderCategory(props: Props) {
 
     return (
         <div id='newOrderCategory'>
-            <button className="categoryButton" onClick={() => changeState()}><h1>{props.cat.name}</h1></button>
+            <button className="categoryButton btn-success" onClick={() => changeState()}><h1>{props.cat.name}</h1></button>
             {expanded ? renderItems() : null}
         </div>
     )

@@ -44,7 +44,7 @@ table tr td{
 }
 
 .popup-window{
-    background-color: rgb(165, 228, 137);
+    background-color: rgb(144, 181, 127);
     position: absolute;
     top: 20%;
     left: 20%;
@@ -52,10 +52,6 @@ table tr td{
 }
 .popup-window label, .popup-window input, .popup-window select, .popup-window button{
     font-size: 2em;
-}
-
-.popup-window button[type="submit"]{
-    background-color: rgb(70, 211, 70);
 }
 
 .fila{

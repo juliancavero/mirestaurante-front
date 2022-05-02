@@ -63,7 +63,7 @@ export function NewCategoryWindow({setVisibility}: props){
             <div className="row mt-4 m-3" id='thirdRow'>
                 <form action="" onSubmit={(event) => onSubmit(event)}>
                     <input className="col-lg-6"  onChange={(event) => setNewCategoryName(event.target.value)} type='text' />
-                    <button className="col-lg-6" type='submit' >Crear nueva categoría</button>
+                    <button className="col-lg-6 btn-success" type='submit' >Crear nueva categoría</button>
                 </form>
             </div>
         </div>
