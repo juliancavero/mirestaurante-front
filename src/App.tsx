@@ -7,8 +7,8 @@ import { Boss } from './components/boss';
 import { Reservas } from './components2/reservations/reservas';
 import { Carta } from './components2/carta/carta';
 import { NewOrder } from './components2/orders/newOrder';
-import { PayOrders } from './components/payOrders/payOrders';
-import { DetailedOrder } from './components/payOrders/detailedOrder';
+import { PayOrders } from './components2/payOrders/payOrders';
+import { DetailedOrder } from './components2/payOrders/detailedOrder';
 
 
 function App() {

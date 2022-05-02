@@ -53,8 +53,8 @@ export function NewOrder(){
         event.preventDefault();
         if(orderTableId && orderName && orderCart){
             const body = {
-                tableId: orderTableId,
                 name: orderName,
+                tableId: orderTableId,
                 items: orderCart
             }
             if(orderTableId){
