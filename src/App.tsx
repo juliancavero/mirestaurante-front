@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
-import { Camarero } from './components/camarero';
-import { Manager } from './components/manager';
-import { Boss } from './components/boss';
+import { Camarero } from './components2/main/camarero';
+import { Manager } from './components2/main/manager';
+import { Boss } from './components2/main/boss';
 import { Reservas } from './components2/reservations/reservas';
 import { Carta } from './components2/carta/carta';
 import { NewOrder } from './components2/orders/newOrder';

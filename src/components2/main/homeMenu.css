@@ -17,3 +17,8 @@ a button{
     background-color: rgb(199, 255, 182) !important;
     border: 0.2em solid black !important;
 }
+
+.fourgrids img{
+    display: block;
+    max-width: 40%;
+}

@@ -3,6 +3,9 @@ import { Table } from './table';
 import './reservationWindow.css';
 import { genericFetch } from "../utils/fetchData";
 import { TableType } from "../utils/types";
+import { fadeInAnimation } from "../estilos";
+
+
 
 export function Reservas() {
     const { getAllReservations, postNewReservation } = genericFetch();
@@ -56,7 +59,7 @@ export function Reservas() {
             </div>
             {
                 newTableWindow ? 
-                    <div className="popup-window" onSubmit={onSubmit}>
+                    <div className={'popup-window ' + fadeInAnimation} onSubmit={onSubmit}>
                         <form>
                             <div className="row">
                                 <h1 className="col-lg-9 m-auto">Crear nueva mesa</h1>

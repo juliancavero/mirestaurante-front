@@ -1,3 +1,4 @@
+import { fadeInAnimation } from "../estilos";
 
 type props = {
     createConfirmationWindow: () => void;
@@ -8,7 +9,7 @@ export function AreYouSureWindow({setConfirmation, createConfirmationWindow}: pr
 
 
     return (
-        <div className="popup-window">
+        <div className={'popup-window ' + fadeInAnimation}>
             <div className="d-flex justify-content-center m-auto my-3">
                 <div className="h1">¿Estás seguro?</div>
             </div>

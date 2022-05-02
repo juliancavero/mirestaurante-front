@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { OrderItem } from './orderItem';
 import { Item, CategoriaType } from '../utils/types';
+import { fadeInAnimation } from "../estilos";
 
 
 type t10 = {
@@ -27,7 +28,7 @@ export function NewOrderCategory(props: Props) {
 
     function renderItems(){
         return (
-            <div className="catItems bg-">
+            <div className={"catItems " + fadeInAnimation}>
                 {props.cat.items.map((item) =>
                     <OrderItem it={item} expFunc={props.passOrderCart}/>
                 )}
