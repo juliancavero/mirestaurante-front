@@ -1,0 +1,57 @@
+.catItems{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: lightgray;
+}
+
+.item{
+    text-align: center;
+    margin: 0.3em 1em;
+}
+
+.selected{
+    border: 0.5em solid yellow;
+}
+
+.categoryButton{
+    width: 100%;
+}
+
+#order{
+    padding: 1em;
+    background-color: aliceblue;
+}
+
+.nombre{
+    font-size: 1.5em;
+    margin-right: 1em;
+    font-weight: bold;
+}
+li{
+    margin-right: 1em;
+    font-size: 1.5em;
+    text-transform: capitalize;
+}
+ul{
+    list-style-type: square;
+}
+.submitButton{
+    font-size: 2.5em;
+    border-radius: 5px;
+    background-color: rgb(123, 255, 123);
+}
+
+.item{
+    text-transform: capitalize;
+}
+
+.item img{
+    width: 15em;
+}
+
+.insideMenu{
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}

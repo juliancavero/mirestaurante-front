@@ -1,0 +1,52 @@
+.popup-window{
+    background-color: lightgray;
+    width: 45%;
+    height: fit-content;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border: 4px solid black;
+}
+
+select{
+    font-size: 2em;
+    margin: 0.5em;
+    align-self: start;
+}
+
+.selected{
+    background-color: rgb(150, 150, 150);
+}
+.notSelected{
+    background-color: rgb(215, 255, 104);
+}
+
+.closeButton {
+    font-size: 2em;
+    align-self: start;
+    margin: 0.5em;
+}
+
+.tablesDiv{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.buttonTable{
+    font-size: 3em !important;
+}
+
+.eachTable{
+    margin: 1.5em;
+}
+
+.addNewTableButton{
+    font-size: 2em;
+}
+
+.btn-darkRed{
+    background-color: rgb(165, 0, 0) !important;
+    color: white !important; 
+}
