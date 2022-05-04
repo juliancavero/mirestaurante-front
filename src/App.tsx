@@ -1,18 +1,17 @@
-import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
-import { Camarero } from './components2/main/camarero';
-import { Manager } from './components2/main/manager';
-import { Boss } from './components2/main/boss';
-import { Reservas } from './components2/reservations/reservas';
-import { Carta } from './components2/carta/carta';
-import { NewOrder } from './components2/orders/newOrder';
-import { PayOrders } from './components2/payOrders/payOrders';
-import { DetailedOrder } from './components2/payOrders/detailedOrder';
-import { HomeMenu } from './components2/main/homeMenu';
+import { Camarero } from './components/waiterView/camarero';
+import { Manager } from './components/managerView/manager';
+import { Boss } from './components/bossView/boss';
+import { Reservas } from './components/waiterView/reservations/reservas';
+import { Carta } from './components/waiterView/carta/carta';
+import { NewOrder } from './components/waiterView/orders/newOrder';
+import { PayOrders } from './components/waiterView/payOrders/payOrders';
+import { DetailedOrder } from './components/waiterView/payOrders/detailedOrder';
+import { HomeMenu } from './components/main/homeMenu';
 import { ReactComponent as HomeSVG } from './homeIcon.svg';
 import { ReactComponent as MiRestauranteLogo } from './mirestaurantelogo.svg';
-import { GoBackButton } from './components2/main/goBack';
+import { GoBackButton } from './components/main/goBack';
 
 
 function App() {
