@@ -1,0 +1,30 @@
+.eachOrder{
+    background-color: rgba(39, 110, 6, 0.514);
+    border: 5px solid black;
+    padding: 1em;
+}
+
+.totalCost{
+    background-color: rgb(234, 255, 158);
+}
+
+.paid{
+    background-color: lightgreen;
+}
+
+.editOrder{
+    background-color: violet;
+}
+
+#firstCol{
+    background-color: rgba(39, 110, 6, 0.514);
+    padding: 1em 2.5em;
+    margin: 0em 3em;
+}
+
+#secondCol{
+    background-color: rgba(39, 110, 6, 0.514);
+    padding: 1em 2.5em;
+    margin: 0em 3em;
+    height: fit-content;
+}
