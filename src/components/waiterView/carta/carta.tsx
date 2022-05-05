@@ -3,17 +3,13 @@ import { useEffect, useState } from "react";
 import { genericFetch } from "../../utils/fetchData";
 import { CartaType } from "../../utils/types";
 import { CartaCategory } from "./cartaCategory";
-import { NewItemWindow } from "./newItemWindow";
 import Table from 'react-bootstrap/Table';
-import { NewCategoryWindow } from "./newCategoryWindow";
 import { NoData } from "../../utils/noData";
 
 export function Carta(){
     const { getCartaData } = genericFetch();
     
     const [ carta, setCarta ] = useState<CartaType>([]);
-    const [ newItemWindow, setNewItemWindow ] = useState(false);
-    const [ newCategoryWindow, setNewCategoryWindow ] = useState(false);
 
     useEffect(() => {
         getCartaData().then(response => setCarta(response));
@@ -21,11 +17,6 @@ export function Carta(){
 
     return (
         <div className="cartaContainer">
-            <button id='addNewItem' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Item</button>
-            <button id='addNewCategory' className='modifyCartaButton' onClick={() => setNewCategoryWindow(true)}>Añadir Categoría</button>
-
-            { newItemWindow ? <NewItemWindow setVisibility={setNewItemWindow} /> : null }
-            { newCategoryWindow ? <NewCategoryWindow setVisibility={setNewCategoryWindow} /> : null }
 
             { carta.length > 0 ? 
                 <div className="container" id='carta'>

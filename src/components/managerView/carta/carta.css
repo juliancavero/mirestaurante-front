@@ -62,3 +62,7 @@ table tr td{
 .existentCategories{
     font-size: 2em;
 }
+
+.smallImg{
+    width: 2em;
+}

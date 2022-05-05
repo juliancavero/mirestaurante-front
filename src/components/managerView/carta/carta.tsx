@@ -14,13 +14,21 @@ export function Carta(){
     const [ carta, setCarta ] = useState<CartaType>([]);
     const [ newItemWindow, setNewItemWindow ] = useState(false);
     const [ newCategoryWindow, setNewCategoryWindow ] = useState(false);
+    const [ showEditOptions, setShowEditOptions ] = useState(false);
 
     useEffect(() => {
         getCartaData().then(response => setCarta(response));
     }, []);
 
+    function showEditMenu(){
+        
+    }
     return (
         <div className="cartaContainer">
+            <div className="d-flex justify-content-end">
+                <button onClick={showEditMenu}><img className="smallImg" src="/images/edit.png" alt="Edit icon"></img></button>
+            </div>
+            
             <button id='addNewItem' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Item</button>
             <button id='addNewCategory' className='modifyCartaButton' onClick={() => setNewCategoryWindow(true)}>Añadir Categoría</button>
 
