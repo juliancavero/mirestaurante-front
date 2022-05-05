@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AreYouSureWindow } from "../../utils/areYouSureWindow";
 import { DeleteButton } from "../../utils/DeleteButton";
+import { genericFetch } from "../../utils/fetchData";
 import { CategoriaType } from "../../utils/types"
 import { CartaItem } from "./cartaItem";
 
@@ -10,6 +11,7 @@ type CategoriaManagerType = CategoriaType & {
 
 export function CartaCategory(props: CategoriaManagerType){
     const { name, items, showDeleteOptions } = props;
+    const { deleteCartaCategory } = genericFetch();
 
     const [ confirmDeleteCategory, setConfirmDeleteCategory ] = useState(false);
     const [ confirmWindowVisible, setConfirmWindowVisible ] = useState(false);
@@ -20,7 +22,11 @@ export function CartaCategory(props: CategoriaManagerType){
 
     useEffect(() => {
         if(confirmDeleteCategory){
-            // Call delete category fetch function
+            const bod = { name: name }
+            deleteCartaCategory(bod).then(response => {
+                    window.alert('Categoría ' + name + ' borrada correctamente.');
+                    window.location.reload();
+            })
         }
     }, [confirmDeleteCategory])
     
@@ -33,7 +39,7 @@ export function CartaCategory(props: CategoriaManagerType){
                     <AreYouSureWindow
                         setConfirmation={setConfirmDeleteCategory}
                         createConfirmationWindow={windowVisible}
-                        goodOption={'Borrar categoría ' + name}
+                        goodOption={'Borrar categoría ' + name + ` (Se perderán todos sus artículos)`}
                         badOption='Cancelar' />
                 : null}
             </tr>

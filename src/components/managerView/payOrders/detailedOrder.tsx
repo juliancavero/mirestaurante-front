@@ -26,7 +26,6 @@ export function DetailedOrder() {
             const bod = {
                 tableId: orderData.tableId
             }
-            console.log(bod);
             payOrderTable(bod).then(response => {
                 window.alert("Pedido procesado correctamente.")
                 window.location.reload();

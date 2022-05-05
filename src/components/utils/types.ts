@@ -74,3 +74,9 @@ export type NewTableType = {
 export type PayOrderType = {
     tableId: number;
 }
+
+export type DeleteItem = {
+    name: string;
+}
+
+export type DeleteCategory = DeleteItem;
