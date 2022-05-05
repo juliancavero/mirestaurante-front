@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { OrderItem } from './orderItem';
 import { Item, CategoriaType } from '../../utils/types';
-import { fadeInAnimation } from "../../estilos";
+import { fadeInAnimation } from "../../utils/estilos";
 
 
 type t10 = {

@@ -3,7 +3,7 @@ import type {  OrderType } from "../../utils/types";
 import './payOrders.css';
 import { useParams } from "react-router-dom";
 import { genericFetch } from "../../utils/fetchData";
-import { AreYouSureWindow } from "./areYouSureWindow";
+import { AreYouSureWindow } from "../../utils/areYouSureWindow";
 
 
 
@@ -59,7 +59,7 @@ export function DetailedOrder() {
                 </div>
             </div>
             { confirmationVisible ? 
-                <AreYouSureWindow createConfirmationWindow={createConfirmationWindow} setConfirmation={setConfirmed} />
+                <AreYouSureWindow createConfirmationWindow={createConfirmationWindow} setConfirmation={setConfirmed} goodOption='Marcar como pagado' badOption='Volver' />
             : null}
         </div>
     )

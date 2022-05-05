@@ -3,7 +3,7 @@ import { Table } from './table';
 import './reservationWindow.css';
 import { genericFetch } from "../../utils/fetchData";
 import { TableType } from "../../utils/types";
-import { fadeInAnimation } from "../../estilos";
+import { fadeInAnimation } from "../../utils/estilos";
 import { NoData } from "../../utils/noData";
 
 

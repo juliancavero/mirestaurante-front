@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import { fadeInAnimation } from "../../estilos";
+import { fadeInAnimation } from "../../utils/estilos";
 import { genericFetch } from "../../utils/fetchData";
 import { TableType } from "../../utils/types"
 

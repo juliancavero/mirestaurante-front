@@ -1,4 +1,4 @@
-import { fadeInAnimation } from "../../estilos";
+import { fadeInAnimation } from "../../utils/estilos";
 
 type props = {
     createConfirmationWindow: () => void;

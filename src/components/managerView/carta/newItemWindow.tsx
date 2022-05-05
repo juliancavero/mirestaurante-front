@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {  FormEvent, useEffect, useState } from "react";
-import { fadeInAnimation } from "../../estilos";
+import { fadeInAnimation } from "../../utils/estilos";
 import { genericFetch } from "../../utils/fetchData";
 import { NewItemType } from "../../utils/types";
 import './carta.css';
