@@ -22,7 +22,7 @@ export function CartaItem(props: CartaItemManager){
         if(confirmDeleteItem){
             const bod = { name: name}
             deleteCartaItem(bod).then(response => {
-                    window.alert('Artículo ' + name + ' borrado correctamente.');
+                    window.alert('Artículo ' + name + ' eliminado correctamente.');
                     window.location.reload();
             })
         }

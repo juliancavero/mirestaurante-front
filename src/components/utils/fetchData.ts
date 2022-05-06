@@ -91,8 +91,8 @@ export function genericFetch(){
         return fetchData<DeleteItem, Response>('DELETE', '/carta/deleteItem', bod)
     }
 
-    async function deleteCartaCategory(bod: DeleteItem): Promise<Response>{
-        return fetchData<DeleteItem, Response>('DELETE', '/carta/deleteCategory', bod)
+    async function deleteCartaCategory(bod: DeleteCategory): Promise<Response>{
+        return fetchData<DeleteCategory, Response>('DELETE', '/carta/deleteCategory', bod)
     }
 
     async function deleteReservationTable(bod: DeleteTableType): Promise<Response>{
