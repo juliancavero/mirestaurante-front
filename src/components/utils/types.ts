@@ -80,3 +80,7 @@ export type DeleteItem = {
 }
 
 export type DeleteCategory = DeleteItem;
+
+export type DeleteTableType = {
+    id: number;
+}

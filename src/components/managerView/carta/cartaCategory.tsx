@@ -34,7 +34,7 @@ export function CartaCategory(props: CategoriaManagerType){
         <div>
             <tr className="row title bg-success">
                 <td className="col-md-11" colSpan={3}>{name}</td>
-                { showDeleteOptions ? <DeleteButton showConfirmationWindow={windowVisible} assignedClass="col-md-1"/> : null}
+                { showDeleteOptions ? <DeleteButton showConfirmationWindow={windowVisible} assignedClass="col-md-1 d-flex justify-content-center"/> : null}
                 { confirmWindowVisible ?
                     <AreYouSureWindow
                         setConfirmation={setConfirmDeleteCategory}

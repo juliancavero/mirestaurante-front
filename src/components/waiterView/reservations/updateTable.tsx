@@ -1,11 +1,12 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { DeleteButton } from "../../utils/DeleteButton";
 import { fadeInAnimation } from "../../utils/estilos";
 import { genericFetch } from "../../utils/fetchData";
 import { TableType } from "../../utils/types"
 
 type TablePropsType = {
     props: TableType;
-    closeWindow: (val: boolean) => void;
+    closeWindow: () => void;
 }
 
 export function UpdateTable({props, closeWindow}: TablePropsType){
@@ -58,10 +59,10 @@ export function UpdateTable({props, closeWindow}: TablePropsType){
     }, [newStatus])
 
     return (
-        <div className={"popup-window " + fadeInAnimation}>
+        <div className={"row col-md-5 p-3 popup-window  " + fadeInAnimation}>
                 <div className="row">
                     <h1 className="col-lg-9 m-auto">Mesa {id}</h1>
-                    <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => closeWindow(false)}>X</button>
+                    <DeleteButton assignedClass='col-md-1' showConfirmationWindow={closeWindow}/>
                 </div>
                 
                 <div className="row">

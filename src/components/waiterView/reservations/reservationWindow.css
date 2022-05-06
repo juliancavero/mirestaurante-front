@@ -1,13 +1,3 @@
-.popup-window{
-    background-color: lightgray;
-    width: 45%;
-    height: fit-content;
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    border: 4px solid black;
-}
-
 select{
     font-size: 2em;
     margin: 0.5em;

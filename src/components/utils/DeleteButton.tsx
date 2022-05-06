@@ -6,6 +6,6 @@ type buttonprops = {
 }
 export function DeleteButton({assignedClass = '', showConfirmationWindow}: buttonprops){
     return (
-        <button onClick={showConfirmationWindow} className={'close ' + assignedClass}>X</button>
+        <button onClick={showConfirmationWindow} className={'close d-flex justify-content-center align-items-center ' + assignedClass}><img id='closeButtonImg' alt='Imagen de aspa para eliminar' src='/images/closeButton.png' /></button>
     )
 }

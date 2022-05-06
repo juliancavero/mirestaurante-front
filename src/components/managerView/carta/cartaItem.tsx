@@ -34,7 +34,7 @@ export function CartaItem(props: CartaItemManager){
                 <td className="col-md-5 m-auto">{name}</td>
                 <td className="col-md-3 m-auto">{price} €</td>
                 <td className="col-md-3 image-td"><img className="cartaImage  m-auto" alt={name} src={ip+'/statics/'+photo}></img></td>
-                { showDeleteOptions ? <DeleteButton showConfirmationWindow={windowVisible} assignedClass="col-md-1"/> : null}
+                { showDeleteOptions ? <DeleteButton showConfirmationWindow={windowVisible} assignedClass="col-md-1 d-flex justify-content-center align-items-center"/> : null}
                 { confirmWindowVisible ?
                     <AreYouSureWindow
                         setConfirmation={setConfirmDeleteItem}

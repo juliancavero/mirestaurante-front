@@ -16,6 +16,7 @@ export function Carta(){
     const [ newCategoryWindow, setNewCategoryWindow ] = useState(false);
     const [ showEditOptions, setShowEditOptions ] = useState(false);
     const [ showDeleteOptions, setShowDeleteOptions ] = useState(false);
+
     useEffect(() => {
         getCartaData().then(response => setCarta(response));
     }, []);
@@ -24,6 +25,14 @@ export function Carta(){
         setShowEditOptions(!showEditOptions);
         setShowDeleteOptions(!showDeleteOptions);
     }
+
+    function toggleItemWindow(){
+        setNewItemWindow(!newItemWindow);
+    }
+
+    function toggleCategoryWindow(){
+        setNewCategoryWindow(!newCategoryWindow);
+    }
     return (
         <div className="cartaContainer">
             <div className="container" id='carta'>
@@ -31,12 +40,12 @@ export function Carta(){
                     <h1 className="me-3">Editar Carta</h1><button className="" onClick={showEditMenu}><img className="smallImg" src="/images/edit.png" alt="Edit icon"></img></button>
                 </div>
                 { showEditOptions ? 
-                    <div>
-                        <button id='addNewItem' className='modifyCartaButton' onClick={() => setNewItemWindow(true)}>Añadir Item</button>
-                        <button id='addNewCategory' className='modifyCartaButton' onClick={() => setNewCategoryWindow(true)}>Añadir Categoría</button>
+                    <div className="row d-flex justify-content-around my-3">
+                        <button id='addNewItem' className='modifyCartaButton col-md-4' onClick={toggleItemWindow}>Añadir Item</button>
+                        <button id='addNewCategory' className='modifyCartaButton col-md-4' onClick={toggleCategoryWindow}>Añadir Categoría</button>
 
-                        { newItemWindow ? <NewItemWindow setVisibility={setNewItemWindow} /> : null }
-                        { newCategoryWindow ? <NewCategoryWindow setVisibility={setNewCategoryWindow} /> : null }
+                        { newItemWindow ? <NewItemWindow setVisibility={toggleItemWindow} /> : null }
+                        { newCategoryWindow ? <NewCategoryWindow setVisibility={toggleCategoryWindow} /> : null }
                     </div>
                 : null}
                 { carta.length > 0 ? 

@@ -1,3 +1,8 @@
+#closeButtonImg{
+    width: 1.5em;
+}
+
 .close{
-    background-color: rgb(255, 109, 109) !important;
+    background-color: transparent;
+    border: none;
 }

@@ -1,4 +1,4 @@
-import  { CartaType, DeleteCategory, DeleteItem, NewCategoriaType, NewTableType, PayOrderType, UpdateTableType } from "./types";
+import  { CartaType, DeleteCategory, DeleteItem, DeleteTableType, NewCategoriaType, NewTableType, PayOrderType, UpdateTableType } from "./types";
 import { NewItemType } from "./types";
 import { NewOrderType } from "./types";
 import { OrderAnswerType } from "./types";
@@ -95,6 +95,10 @@ export function genericFetch(){
         return fetchData<DeleteItem, Response>('DELETE', '/carta/deleteCategory', bod)
     }
 
+    async function deleteReservationTable(bod: DeleteTableType): Promise<Response>{
+        return fetchData<DeleteTableType, Response>('DELETE', '/reservations', bod)
+    }
+
     async function postNewItemPhoto(bod: FormData): Promise<Response>{
         const response = await fetch(`${url}/cartaItemPhoto`, {
                 method: 'POST',
@@ -118,6 +122,7 @@ export function genericFetch(){
         postNewReservation,
         payOrderTable,
         deleteCartaItem,
-        deleteCartaCategory
+        deleteCartaCategory,
+        deleteReservationTable
     }
 }
