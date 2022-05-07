@@ -4,6 +4,7 @@ import './payOrders.css';
 import { useParams } from "react-router-dom";
 import { genericFetch } from "../../utils/fetchData";
 import { AreYouSureWindow } from "../../utils/areYouSureWindow";
+import { Invoice } from "./invoice";
 
 
 
@@ -38,17 +39,15 @@ export function DetailedOrder() {
     }
 
     return (
-        <div id='order'>
-            <div className="d-flex justify-content-center">
-                <div id='firstCol'>
+        <div id='order' className="row d-flex justify-content-center rounded">
+                <div className="col-md-4 row detailedOrderBox p-4" id=''>
                     <h1>Pedido</h1>
                     <h2>Nombre: {orderData ? orderData.name : null}.</h2>
                     <h2>Artículos:</h2>
-                    <ul>
-                        {orderData ? orderData.items.map((item) => <li>{item.name} - {item.price} €</li>) : null}
-                    </ul>
+                    { orderData ? <Invoice orderData={orderData} /> : null}
                 </div>
-                <div id='secondCol'>
+                <div className="col-md-1"></div>
+                <div className="col-md-4 row detailedOrderBox p-4 rounded" id=''>
                     <h1>Coste Total:</h1>
                     <div className='d-flex flex-column'>
                         <button className="btn btn-lg btn-warning my-1 p-2">{orderData ? orderData.totalCost : null} €</button>
@@ -56,7 +55,6 @@ export function DetailedOrder() {
                         <button className="btn btn-lg btn-info my-1 p-2">Editar pedido</button>
                     </div>
                 </div>
-            </div>
             { confirmationVisible ? 
                 <AreYouSureWindow createConfirmationWindow={createConfirmationWindow} setConfirmation={setConfirmed} goodOption='Marcar como pagado' badOption='Volver' />
             : null}

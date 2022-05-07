@@ -35,13 +35,16 @@ export type ItemSendType = {
     name: string;
     price: number;
     photo: string;
+    quantity: number;
 }
+
+export type ItemCart = Item & { quantity: number };
 
 export type OrderAnswerType = {
     _id: ObjectId,
     name: string,
     tableId: number,
-    items: Item[],
+    items: ItemSendType[],
     totalCost: number
 }
 
@@ -49,7 +52,7 @@ export type OrderType = {
     _id: ObjectId;
     name: string;
     tableId: number;
-    items: Item[];
+    items: ItemSendType[];
     totalCost: number;
 }
 

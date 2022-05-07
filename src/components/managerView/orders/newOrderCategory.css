@@ -34,7 +34,8 @@ li{
     text-transform: capitalize;
 }
 ul{
-    list-style-type: square;
+    list-style-type: none;
+    border: 1px solid black;
 }
 .submitButton{
     font-size: 2.5em;

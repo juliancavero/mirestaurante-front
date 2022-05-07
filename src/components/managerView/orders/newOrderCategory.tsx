@@ -1,36 +1,27 @@
 import { useState } from "react"
 import { OrderItem } from './orderItem';
-import { Item, CategoriaType } from '../../utils/types';
+import { CategoriaType, ItemCart } from '../../utils/types';
 import { fadeInAnimation } from "../../utils/estilos";
 
-
-type t10 = {
-    setOrderCart: React.Dispatch<React.SetStateAction<Item[]>>;
-    orderCart: Item[];
+type props = {
+    setOrderCart: React.Dispatch<React.SetStateAction<ItemCart[]>>;
+    orderCart: ItemCart[];
+    cat: CategoriaType
 }
 
-type Props = {
-    cat: CategoriaType;
-    passOrderCart: t10;
-}
+export function NewOrderCategory({setOrderCart, orderCart, cat}: props) {
 
-export function NewOrderCategory(props: Props) {
-
-    const [expanded, setExpanded] = useState(false);
+    const [ expanded, setExpanded ] = useState(false);
 
     function changeState () {
-        if(expanded){
-            setExpanded(false);
-        } else {
-            setExpanded(true);
-        }
+        setExpanded(!expanded);
     }
 
     function renderItems(){
         return (
             <div className={"catItems " + fadeInAnimation}>
-                {props.cat.items.map((item) =>
-                    <OrderItem it={item} expFunc={props.passOrderCart}/>
+                {cat.items.map((item) =>
+                    <OrderItem itemPassed={item} setOrderCart={setOrderCart} orderCart={orderCart}/>
                 )}
             </div>
         )
@@ -38,7 +29,7 @@ export function NewOrderCategory(props: Props) {
 
     return (
         <div id='newOrderCategory'>
-            <button className="categoryButton btn-success" onClick={() => changeState()}><h1>{props.cat.name}</h1></button>
+            <button className="categoryButton btn-success" onClick={changeState}><h1>{cat.name}</h1></button>
             {expanded ? renderItems() : null}
         </div>
     )

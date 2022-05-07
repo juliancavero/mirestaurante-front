@@ -19,7 +19,7 @@ export function PayOrders() {
     }, []);
 
     function goToCashier(id: ObjectId){
-        navigate('/camarero/caja/'+id);
+        navigate('/manager/caja/'+id);
     }
     
     return (
