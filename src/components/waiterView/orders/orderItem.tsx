@@ -1,51 +1,46 @@
-import { useState } from 'react';
-import type { Item } from '../../utils/types';
+import React, { useEffect, useState } from 'react';
+import type { ItemCart, ItemResponse } from '../../utils/types';
 import { ip } from '../../utils/fetchData';
-
-type t10 = {
-    setOrderCart: React.Dispatch<React.SetStateAction<Item[]>>;
-    orderCart: Item[];
-}
+import { QuantityWindow } from './quantityWindow';
 
 type props = {
-    expFunc: t10;
-    it: Item;
+    setOrderCart: React.Dispatch<React.SetStateAction<ItemCart[]>>;
+    orderCart: ItemCart[];
+    itemPassed: ItemResponse;
 }
 
-export function OrderItem (props: props) {
+export function OrderItem ({setOrderCart, orderCart, itemPassed}: props) {
 
-    const { setOrderCart, orderCart } = props.expFunc;
-    const [active, setActive] = useState(false);
-    
-    function activeHandler(){
-        if(active){
+    const [ active, setActive ] = useState(false);
+    const [ quantityWindow, setQuantityWindow ] = useState(false);
+    const [ itemQuantity, setItemQuantity ] = useState<number>();
+   
+    function showQuantityWindow(){
+        setQuantityWindow(!quantityWindow);
+    }
+
+    useEffect(() => {
+        if(quantityWindow && active){
             setActive(false);
-        } else {
-            setActive(true);
+            setQuantityWindow(false);
+            setOrderCart(orderCart.filter(item => item.name !== itemPassed.name))
         }
-    }
-
-    function addToCart(){
-        const thisItem = {
-            name: props.it.name,
-            price: props.it.price,
-            photo: props.it.photo
-        }
-        if(orderCart.find(it => it.name === props.it.name)){
-            let cart = [...orderCart];
-            setOrderCart(cart.filter(function(value, index, array){
-                return value.name !== props.it.name;
-            }))
-        } else {
-            setOrderCart([...orderCart, thisItem])
-        }
-    }
-    
+    }, [quantityWindow, active])
 
     return (
-        <div onClick={function(event){activeHandler(); addToCart();}} className={'item'+ (active ? ' selected' : '')}>
-            <img alt={props.it.name} src={ip+'/statics/'+props.it.photo}></img>
-            <h3>{props.it.name} - {props.it.price}</h3>
+        <div className={'item'+ (active ? ' selected' : '')}>
+            <button onClick={showQuantityWindow}><img alt={itemPassed.name} src={ip+'/statics/'+itemPassed.photo}></img></button>
+            <h3>{itemPassed.name} - {itemPassed.price}</h3>
+            { quantityWindow ? 
+                <QuantityWindow
+                    setItemQuantity={setItemQuantity}
+                    confirmationWindow={setQuantityWindow}
+                    setOrderCart={setOrderCart}
+                    orderCart={orderCart}
+                    setActive={setActive}
+                    itemPassed={itemPassed}
+                    />
+            : null }
         </div>
     )
 }

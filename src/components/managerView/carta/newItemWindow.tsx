@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {  FormEvent, useEffect, useState } from "react";
-import { fadeInAnimation } from "../../estilos";
+import { DeleteButton } from "../../utils/DeleteButton";
+import { fadeInAnimation } from "../../utils/estilos";
 import { genericFetch } from "../../utils/fetchData";
 import { NewItemType } from "../../utils/types";
 import './carta.css';
 
 type props = {
-    setVisibility: (val: boolean) =>  void;
+    setVisibility: () =>  void;
 }
 export function NewItemWindow({setVisibility}: props){
     const { getCartaCategories, postNewItem, postNewItemPhoto } = genericFetch();
@@ -92,10 +93,10 @@ export function NewItemWindow({setVisibility}: props){
     }
 
     return (
-        <div className={'popup-window ' + fadeInAnimation}>
+        <div className={'row col-md-6 p-3 popup-window ' + fadeInAnimation}>
             <div className="row">
-                <h1 className="col-lg-9 m-auto">Insertar nuevo item en Carta</h1>
-                <button className='col-sm-1 ms-auto closeButton' id='catPlato' onClick={() => setVisibility(false)}>X</button>
+                <h1 className="col-md-9 m-auto">Insertar nuevo item en Carta</h1>
+                <DeleteButton assignedClass='col-md-1' showConfirmationWindow={setVisibility}/>
             </div>
 
             { categories && categories.length > 0 ? 
