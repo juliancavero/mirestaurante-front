@@ -5,8 +5,6 @@ import { CartaType, ItemCart, TableType } from "../../utils/types";
 import { NewOrderCategory } from "./newOrderCategory";
 import './newOrderCategory.css';
 
-
-
 export function NewOrder(){
     const { getCartaData, postNewOrder, getAllReservations } = genericFetch();
 
