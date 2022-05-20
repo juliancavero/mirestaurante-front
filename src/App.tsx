@@ -19,6 +19,9 @@ import { HomeMenu } from './components/main/homeMenu';
 import { ReactComponent as HomeSVG } from './homeIcon.svg';
 import { ReactComponent as MiRestauranteLogo } from './mirestaurantelogo.svg';
 import { GoBackButton } from './components/main/goBack';
+import { ShowIncome } from './components/bossView/income/showIncome';
+import { ManageEmployees } from './components/bossView/employees/manageEmployees';
+import { MyCompanyData } from './components/bossView/mycompany/myCompanyData';
 
 
 function App() {
@@ -51,10 +54,10 @@ function App() {
 
 
         <Route path='/boss' element={<Boss />}/>
-          <Route path='/boss/income' element={<ManagerReservas />} />
-          <Route path='/boss/employees' element={<ManagerReservas />} />
-          <Route path='/boss/mycompany' element={<ManagerReservas />} />
-          <Route path='/boss/income' element={<ManagerPayOrders />} />
+          <Route path='/boss/income' element={<ShowIncome />} />
+          <Route path='/boss/employees' element={<ManageEmployees />} />
+          <Route path='/boss/mycompany' element={<MyCompanyData />} />
+          <Route path='/boss/income' element={<ShowIncome />} />
 
 
         <Route path='/' element={<HomeMenu />}/>

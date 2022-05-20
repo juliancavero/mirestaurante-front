@@ -19,7 +19,7 @@ export function Boss(){
                     <img src='/images/company.png' alt=""></img>
                 </div>
                 <div className="col-sm-6 d-flex flex-column fourgrids align-items-center">
-                    <MenuButton content='OPERATIVA RESTAURANTE' url=''/>
+                    <MenuButton content='OPERATIVA RESTAURANTE' url='income'/>
                     <img src='/images/operativa.png' alt=""></img>
                 </div>
             </div>
