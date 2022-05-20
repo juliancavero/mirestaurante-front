@@ -7,9 +7,11 @@ import { TableType } from "./types";
 
 type CategoriesType = string[];
 
-export const ip = 'https://api.mirestaurante.teamcamp.ovh';
+export const ip = 'http://192.168.0.20:3099';
 
-const url = ip;
+const production = false;
+
+const url = production ? 'http://api.mirestaurante.teamcamp.ovh' : ip ;
 
 async function fetchData<Parameters, Response>(
     method: ('GET' | 'POST' | 'PUT' | 'DELETE'),

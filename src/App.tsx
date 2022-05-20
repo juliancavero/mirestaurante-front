@@ -51,7 +51,10 @@ function App() {
 
 
         <Route path='/boss' element={<Boss />}/>
-
+          <Route path='/boss/income' element={<ManagerReservas />} />
+          <Route path='/boss/employees' element={<ManagerReservas />} />
+          <Route path='/boss/mycompany' element={<ManagerReservas />} />
+          <Route path='/boss/income' element={<ManagerPayOrders />} />
 
 
         <Route path='/' element={<HomeMenu />}/>
