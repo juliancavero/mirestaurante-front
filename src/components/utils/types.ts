@@ -1,89 +1,117 @@
 import { ObjectId } from "mongodb";
 
-
 export type CartaType = CategoriaType[];
 
 export type CategoriaType = {
-    name: string;
-    items: ItemResponse[];
-}
+  name: string;
+  items: ItemResponse[];
+};
 export type NewCategoriaType = {
-    name: string;
-}
+  name: string;
+};
 
 export type ItemResponse = Item & {
-    _id: ObjectId;
-}
+  _id: ObjectId;
+};
 
 export type NewItemType = {
-    name: string;
-    items: Item;
-}
+  name: string;
+  items: Item;
+};
 
 export type Item = {
-    name: string;
-    price: number;
-    photo: string;
-}
+  name: string;
+  price: number;
+  photo: string;
+};
 
 export type NewOrderType = {
-    name: string;
-    items: ItemSendType[];
-}
+  name: string;
+  items: ItemSendType[];
+};
 
 export type ItemSendType = {
-    name: string;
-    price: number;
-    photo: string;
-    quantity: number;
-}
+  name: string;
+  price: number;
+  photo: string;
+  quantity: number;
+};
 
 export type ItemCart = Item & { quantity: number };
 
 export type OrderAnswerType = {
-    _id: ObjectId,
-    name: string,
-    tableId: number,
-    items: ItemSendType[],
-    totalCost: number
-}
+  _id: ObjectId;
+  name: string;
+  tableId: number;
+  items: ItemSendType[];
+  totalCost: number;
+};
 
 export type OrderType = {
-    _id: ObjectId;
-    name: string;
-    tableId: number;
-    items: ItemSendType[];
-    totalCost: number;
-}
+  _id: ObjectId;
+  name: string;
+  tableId: number;
+  items: ItemSendType[];
+  totalCost: number;
+};
 
 export type TableType = {
-    id: number;
-    status: "Available" | "Reserved" | "Taken";
-    size: number;
-    name?: string | undefined;
-}
+  id: number;
+  status: "Available" | "Reserved" | "Taken";
+  size: number;
+  name?: string | undefined;
+};
 
 export type UpdateTableType = {
-    id: number;
-    status: string;
-    size: number;
-    name?: string | undefined;
-}
+  id: number;
+  status: string;
+  size: number;
+  name?: string | undefined;
+};
 
 export type NewTableType = {
-    size: number;
-}
+  size: number;
+};
 
 export type PayOrderType = {
-    tableId: number;
-}
+  tableId: number;
+};
 
 export type DeleteItem = {
-    name: string;
-}
+  name: string;
+};
 
 export type DeleteCategory = DeleteItem;
 
 export type DeleteTableType = {
-    id: number;
-}
+  id: number;
+};
+
+export type DailyDataType = {
+  dailyData: dailyIncome[];
+};
+
+export type dailyIncome = {
+  date: string;
+  totalIncome: number[];
+};
+
+export type Employee = {
+  name: string;
+  role: "Waiter" | "Manager" | "Owner";
+  payslip: number;
+  userName: string;
+  dni: string;
+};
+
+export type PasswordResponse = {
+  password: string;
+};
+
+export type RegisterUser = {
+  name: string;
+  userName: string;
+  password: string;
+  dni: string;
+  secretKey: string;
+};

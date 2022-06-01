@@ -1,25 +1,32 @@
-a button{
-    padding: 4em 0em !important;
+a button {
+  padding: 4em 0em !important;
 }
 
-
-.waiter{
-    background-color: rgb(254, 255, 182) !important;
-    border: 0.2em solid black !important;
+.mainMenu {
+  height: 80vh;
+}
+.instructions {
+  font-size: 0.6em !important;
+  font-weight: normal !important;
 }
 
-.manager{
-    background-color: rgb(199, 255, 182) !important;
-    border: 0.2em solid black !important;
+.waiter {
+  background-color: rgb(254, 255, 182) !important;
+  border: 0.2em solid black !important;
 }
 
-.boss{
-    background-color: rgb(199, 255, 182) !important;
-    /* background-color: rgb(111, 195, 201) !important; */
-    border: 0.2em solid black !important;
+.manager {
+  background-color: rgb(199, 255, 182) !important;
+  border: 0.2em solid black !important;
 }
 
-.fourgrids img{
-    display: block;
-    max-width: 40%;
+.boss {
+  background-color: rgb(199, 255, 182) !important;
+  /* background-color: rgb(111, 195, 201) !important; */
+  border: 0.2em solid black !important;
+}
+
+.fourgrids img {
+  display: block;
+  max-width: 40%;
 }

@@ -1,0 +1,8 @@
+.eachRow:focus,
+.eachRow:hover {
+  background-color: rgb(141, 255, 103);
+}
+
+.registerEmployeeBox {
+  background-color: aliceblue;
+}
