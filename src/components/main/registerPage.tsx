@@ -21,28 +21,23 @@ export function RegisterPage() {
       dni: dni.value,
       secretKey: secretKey.value,
     };
-    registerUser(bod)
-      .then((response) => {
-        return response.json();
-      })
-      .then((resp) => {
-        handleResponse(resp);
-      });
-    /* fetch("http://localhost:3099/register", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body,
-    }).then((response) => {
-      handleResponse(response);
-    }); */
+    registerUser(bod).then((resp) => {
+      handleStatusCode(resp);
+    });
   }
 
-  function handleResponse(response: Response) {
-    switch (response.status) {
+  function handleStatusCode(resp: any) {
+    if ("secretKey" in resp) {
+      handleResponse(403);
+    } else if ("userName" in resp) {
+      handleResponse(405);
+    } else if ("dni" in resp) {
+      handleResponse(200);
+    }
+  }
+
+  function handleResponse(code: number) {
+    switch (code) {
       case 200:
         successfullLogin();
         break;

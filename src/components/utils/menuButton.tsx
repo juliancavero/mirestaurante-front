@@ -1,15 +1,18 @@
-import './menuButton.css';
+import "./menuButton.css";
 
 type ButtonContent = {
-    content: string;
-    url: string;
-}
+  content: string;
+  url: string;
+};
 
-export function MenuButton(props: ButtonContent){
+export function MenuButton({ content, url }: ButtonContent) {
+  function gotourl() {
+    window.location.assign(url);
+  }
 
-    function gotourl(){
-        window.location.href = window.location.href + '/' + props.url;
-    }
-
-    return <button className='menuButton' onClick={gotourl}>{props.content}</button>
+  return (
+    <button className="menuButton" onClick={gotourl}>
+      {content}
+    </button>
+  );
 }

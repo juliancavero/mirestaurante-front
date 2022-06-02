@@ -20,7 +20,7 @@ import { TableType } from "./types";
 
 type CategoriesType = string[];
 
-export const ip = "http://192.168.0.20:3099";
+export const ip = "http://192.168.1.56:3099";
 
 const production = false;
 
@@ -57,7 +57,8 @@ async function fetchData<Parameters, Response>(
   }
 
   if (response?.ok) {
-    return await response.json();
+    const json = await response.json();
+    return json;
   } else {
     // CONTROL ERRORES
     const json = await response?.json();

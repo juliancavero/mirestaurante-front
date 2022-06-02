@@ -23,6 +23,9 @@ import { ManageEmployees } from "./components/bossView/employees/manageEmployees
 import { MyCompanyData } from "./components/bossView/mycompany/myCompanyData";
 import { IncomeData } from "./components/bossView/income/incomeData";
 import { RegisterPage } from "./components/main/registerPage";
+import { ProtectedRoute } from "./components/main/protectedRoute";
+import { LogInOutButton } from "./components/main/loginButton";
+import { NotFound } from "./components/main/notFound";
 
 function App() {
   return (
@@ -38,40 +41,150 @@ function App() {
             <div className="m-auto">
               <MiRestauranteLogo />
             </div>
-            <div className="m-auto">
+            <div className="m-auto d-flex">
+              <LogInOutButton />
               <GoBackButton />
             </div>
           </div>
         </nav>
 
         <Routes>
-          <Route path="/camarero" element={<CamareroMenu />} />
-          <Route path="/camarero/reservas" element={<CamareroReservas />} />
-          <Route path="/camarero/carta" element={<CamareroCarta />} />
-          <Route path="/camarero/pedido" element={<CamareroNewOrder />} />
-          <Route path="/camarero/caja" element={<CamareroPayOrders />} />
+          <Route
+            path="/camarero"
+            element={
+              <ProtectedRoute role={["Waiter", "Manager", "Owner"]}>
+                <CamareroMenu />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/camarero/reservas"
+            element={
+              <ProtectedRoute role={["Waiter", "Manager", "Owner"]}>
+                <CamareroReservas />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/camarero/carta"
+            element={
+              <ProtectedRoute role={["Waiter", "Manager", "Owner"]}>
+                <CamareroCarta />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/camarero/pedido"
+            element={
+              <ProtectedRoute role={["Waiter", "Manager", "Owner"]}>
+                <CamareroNewOrder />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/camarero/caja"
+            element={
+              <ProtectedRoute role={["Waiter", "Manager", "Owner"]}>
+                <CamareroPayOrders />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/camarero/caja/:orderid"
-            element={<CamareroDetailedOrder />}
+            element={
+              <ProtectedRoute role={["Waiter", "Manager", "Owner"]}>
+                <CamareroDetailedOrder />
+              </ProtectedRoute>
+            }
           />
 
-          <Route path="/manager" element={<Manager />} />
-          <Route path="/manager/reservas" element={<ManagerReservas />} />
-          <Route path="/manager/carta" element={<ManagerCarta />} />
-          <Route path="/manager/pedido" element={<ManagerNewOrder />} />
-          <Route path="/manager/caja" element={<ManagerPayOrders />} />
+          <Route
+            path="/manager"
+            element={
+              <ProtectedRoute role={["Manager", "Owner"]}>
+                <Manager />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/manager/reservas"
+            element={
+              <ProtectedRoute role={["Manager", "Owner"]}>
+                <ManagerReservas />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/manager/carta"
+            element={
+              <ProtectedRoute role={["Manager", "Owner"]}>
+                <ManagerCarta />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/manager/pedido"
+            element={
+              <ProtectedRoute role={["Manager", "Owner"]}>
+                <ManagerNewOrder />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/manager/caja"
+            element={
+              <ProtectedRoute role={["Manager", "Owner"]}>
+                <ManagerPayOrders />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/manager/caja/:orderid"
-            element={<ManagerDetailedOrder />}
+            element={
+              <ProtectedRoute role={["Manager", "Owner"]}>
+                <ManagerDetailedOrder />
+              </ProtectedRoute>
+            }
           />
 
-          <Route path="/boss" element={<Boss />} />
-          <Route path="/boss/income" element={<IncomeData />} />
-          <Route path="/boss/employees" element={<ManageEmployees />} />
-          <Route path="/boss/mycompany" element={<MyCompanyData />} />
+          <Route
+            path="/boss"
+            element={
+              <ProtectedRoute role={["Owner"]}>
+                <Boss />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/boss/income"
+            element={
+              <ProtectedRoute role={["Owner"]}>
+                <IncomeData />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/boss/employees"
+            element={
+              <ProtectedRoute role={["Owner"]}>
+                <ManageEmployees />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/boss/mycompany"
+            element={
+              <ProtectedRoute role={["Owner"]}>
+                <MyCompanyData />
+              </ProtectedRoute>
+            }
+          />
 
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/" element={<LogIn />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
