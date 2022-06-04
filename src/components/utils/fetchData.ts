@@ -25,7 +25,7 @@ type CategoriesType = string[];
 
 export const ip = "http://localhost:3099";
 
-const production = false;
+const production = true;
 
 const url = production ? "http://api.mirestaurante.teamcamp.ovh" : ip;
 

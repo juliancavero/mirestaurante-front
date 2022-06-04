@@ -39,12 +39,11 @@ export function CartaItem(props: CartaItemManager) {
           src={ip + "/statics/" + photo}
         ></img>
       </td>
-      {showDeleteOptions ? (
-        <DeleteButton
-          showConfirmationWindow={windowVisible}
-          assignedClass="col-md-1 d-flex justify-content-center align-items-center"
-        />
-      ) : null}
+      <td className="col-md-1 d-flex justify-content-center align-items-center">
+        {showDeleteOptions ? (
+          <DeleteButton showConfirmationWindow={windowVisible} />
+        ) : null}
+      </td>
       {confirmWindowVisible ? (
         <AreYouSureWindow
           setConfirmation={setConfirmDeleteItem}

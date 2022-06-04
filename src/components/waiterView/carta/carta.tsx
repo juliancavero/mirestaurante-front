@@ -3,33 +3,37 @@ import { useEffect, useState } from "react";
 import { genericFetch } from "../../utils/fetchData";
 import { CartaType } from "../../utils/types";
 import { CartaCategory } from "./cartaCategory";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import { NoData } from "../../utils/noData";
 
-export function Carta(){
-    const { getCartaData } = genericFetch();
-    
-    const [ carta, setCarta ] = useState<CartaType>([]);
+export function Carta() {
+  const { getCartaData } = genericFetch();
 
-    useEffect(() => {
-        getCartaData().then(response => setCarta(response));
-    }, []);
+  const [carta, setCarta] = useState<CartaType>([]);
 
-    return (
-        <div className="cartaContainer">
+  useEffect(() => {
+    getCartaData().then((response) => setCarta(response));
+  }, []);
 
-            { carta.length > 0 ? 
-                <div className="container" id='carta'>
-                    <Table id='tablaCarta' responsive>
-                    {
-                        carta.map((category) => (
-                            <CartaCategory name={category.name} items={category.items} />
-                        ))
-                    }
-                    </Table>
-                </div>
-            : <NoData str="Aún no hay datos en la carta... Contacta con un Manager para solucionar este problema." />}
-            
+  return (
+    <div className="cartaContainer">
+      {carta.length > 0 ? (
+        <div className="container" id="carta">
+          <Table id="tablaCarta" responsive>
+            <tbody>
+              {carta.map((category) => (
+                <CartaCategory
+                  key={category.name}
+                  name={category.name}
+                  items={category.items}
+                />
+              ))}
+            </tbody>
+          </Table>
         </div>
-    )
+      ) : (
+        <NoData str="Aún no hay datos en la carta... Contacta con un Manager para solucionar este problema." />
+      )}
+    </div>
+  );
 }
