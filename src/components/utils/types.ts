@@ -1,4 +1,5 @@
 import { ObjectId } from "mongodb";
+import { Order } from "../bossView/income/orderHistory";
 
 export type CartaType = CategoriaType[];
 
@@ -114,4 +115,18 @@ export type RegisterUser = {
   password: string;
   dni: string;
   secretKey: string;
+};
+
+export type LoginProps = {
+  userName: string;
+  password: string;
+};
+
+export type LoginResponse = {
+  userName?: string;
+  token?: string;
+};
+
+export type OrderHistoryType = {
+  orderHistory: Order[];
 };

@@ -5,8 +5,11 @@ import {
   DeleteItem,
   DeleteTableType,
   Employee,
+  LoginProps,
+  LoginResponse,
   NewCategoriaType,
   NewTableType,
+  OrderHistoryType,
   PasswordResponse,
   PayOrderType,
   RegisterUser,
@@ -22,7 +25,7 @@ type CategoriesType = string[];
 
 export const ip = "http://localhost:3099";
 
-const production = true;
+const production = false;
 
 const url = production ? "http://api.mirestaurante.teamcamp.ovh" : ip;
 
@@ -184,6 +187,14 @@ export function genericFetch() {
     return fetchData<RegisterUser, Response>("POST", "/register", bod);
   }
 
+  async function loginServer(bod: LoginProps): Promise<LoginResponse> {
+    return fetchData<LoginProps, LoginResponse>("POST", "/login", bod);
+  }
+
+  async function getOrderHistory(): Promise<OrderHistoryType> {
+    return fetchData<string, OrderHistoryType>("GET", "/orderHistory");
+  }
+
   return {
     getCartaData,
     getCartaCategories,
@@ -208,5 +219,7 @@ export function genericFetch() {
     putEmployeeData,
     postEmployeeData,
     registerUser,
+    loginServer,
+    getOrderHistory,
   };
 }
