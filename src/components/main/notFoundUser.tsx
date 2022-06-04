@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-
 type NotFoundUserProps = {
   show: boolean;
   message: string;
+  success: boolean;
 };
 
-export function NotFoundUser({ show, message }: NotFoundUserProps) {
+export function NotFoundUser({ show, message, success }: NotFoundUserProps) {
   if (!show) return null;
-  return <span className={"notfounderror"}>{message}</span>;
+  if (success) return <span className={"notfounderror green"}>{message}</span>;
+  return <span className={"notfounderror red"}>{message}</span>;
 }

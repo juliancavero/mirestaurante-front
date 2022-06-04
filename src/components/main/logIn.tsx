@@ -12,7 +12,7 @@ export function LogIn() {
     if (role) {
       setAlreadyLogged(true);
     }
-  });
+  }, []);
   return (
     <>
       <AlreadyLoggedHandler show={alreadyLogged} />
@@ -26,6 +26,7 @@ type LoginHandlerProps = {
 function LoginHandler({ show }: LoginHandlerProps) {
   const [notFoundUserShow, setNotFoundUserShow] = useState(false);
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
   if (!show) return null;
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -43,10 +44,12 @@ function LoginHandler({ show }: LoginHandlerProps) {
         } else {
           setNotFoundUserShow(true);
           setMessage("Login correcto");
+          setSuccess(true);
           handleRedirect();
         }
       } else if ("userName" in respuesta) {
         setMessage("Credenciales de acceso incorrectas");
+        setSuccess(false);
         setNotFoundUserShow(true);
       }
     });
@@ -102,7 +105,11 @@ function LoginHandler({ show }: LoginHandlerProps) {
             ></input>
           </div>
           <div className="row my-3">
-            <NotFoundUser show={notFoundUserShow} message={message} />
+            <NotFoundUser
+              show={notFoundUserShow}
+              message={message}
+              success={success}
+            />
             <button type={"submit"}>Log In</button>
           </div>
           <div className="d-flex justify-content-end my-2">

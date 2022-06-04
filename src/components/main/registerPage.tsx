@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { genericFetch } from "../utils/fetchData";
 import { HandleResponseComponent } from "./handleResponseComponent";
 import "./homeMenu.css";
@@ -107,7 +106,7 @@ export function RegisterPage() {
           <p className="instructions">Introduce al menos 5 caracteres</p>
           <input
             required
-            pattern="^[a-zA-Z0-9_@!?|\\\/\-]{5,}$"
+            pattern="^.{5,}$"
             name="password"
             placeholder="Contraseña..."
             type={"password"}

@@ -1,4 +1,4 @@
-import { Key, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { genericFetch } from "../../utils/fetchData";
 import { Employee } from "../../utils/types";
 
@@ -52,7 +52,7 @@ export function DetailedEmployeeData({
     });
   }
   return (
-    <div className="m-3">
+    <div className="row col m-3 rounded px-4 py-4 registerEmployeeBox">
       <div className="row d-flex justify-content-center">
         <div className="col-md-3">
           <span className="h2">Nombre</span>

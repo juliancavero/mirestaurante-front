@@ -114,7 +114,7 @@ export function IncomeData() {
         </div>
       </div>
 
-      <div className="col-6">
+      <div className="col-6 px-3">
         <OrderHistory />
       </div>
     </div>
