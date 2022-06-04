@@ -47,7 +47,7 @@ export function DetailedEmployeeData({
       if (response) {
         window.location.reload();
       } else {
-        console.log("failed request");
+        window.alert("Request failed");
       }
     });
   }

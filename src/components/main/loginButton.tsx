@@ -50,11 +50,16 @@ function Loggedin({ isLogged, userName }: LoggedInProps) {
     window.localStorage.removeItem("role");
   }
   return (
-    <div className="d-flex flex-column align-items-end">
-      <button className="btn" onClick={handleLogOut}>
-        <img width={"80px"} src="/images/logoutIcon.png" />
-      </button>
-      <h4>Registrado como {userName}</h4>
+    <div className="row">
+      <div className="col-sm-6 p-3">
+        <h5>Bienvenido</h5>
+        <h4 className="px-3 fw-bold">{userName}</h4>
+      </div>
+      <div className="col-sm-6">
+        <button className="btn" onClick={handleLogOut}>
+          <img width={"80px"} src="/images/logoutIcon.png" />
+        </button>
+      </div>
     </div>
   );
 }

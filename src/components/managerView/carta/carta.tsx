@@ -7,13 +7,13 @@ import { NewItemWindow } from "./newItemWindow";
 import Table from "react-bootstrap/Table";
 import { NewCategoryWindow } from "./newCategoryWindow";
 import { NoData } from "../../utils/noData";
+import { CartaEditMenu } from "./cartaEditMenu";
 
 export function Carta() {
   const { getCartaData } = genericFetch();
 
   const [carta, setCarta] = useState<CartaType>([]);
-  const [newItemWindow, setNewItemWindow] = useState(false);
-  const [newCategoryWindow, setNewCategoryWindow] = useState(false);
+
   const [showEditOptions, setShowEditOptions] = useState(false);
   const [showDeleteOptions, setShowDeleteOptions] = useState(false);
 
@@ -26,19 +26,12 @@ export function Carta() {
     setShowDeleteOptions(!showDeleteOptions);
   }
 
-  function toggleItemWindow() {
-    setNewItemWindow(!newItemWindow);
-  }
-
-  function toggleCategoryWindow() {
-    setNewCategoryWindow(!newCategoryWindow);
-  }
   return (
     <div className="cartaContainer">
       <div className="container" id="carta">
-        <div className="d-flex justify-content-end align-items-center">
+        <div className="d-flex justify-content-center align-items-center border border-3 border-warning">
           <h1 className="me-3">Editar Carta</h1>
-          <button className="" onClick={showEditMenu}>
+          <button onClick={showEditMenu}>
             <img
               className="smallImg"
               src="/images/edit.png"
@@ -46,31 +39,7 @@ export function Carta() {
             ></img>
           </button>
         </div>
-        {showEditOptions ? (
-          <div className="row d-flex justify-content-around my-3">
-            <button
-              id="addNewItem"
-              className="modifyCartaButton col-md-4"
-              onClick={toggleItemWindow}
-            >
-              Añadir Item
-            </button>
-            <button
-              id="addNewCategory"
-              className="modifyCartaButton col-md-4"
-              onClick={toggleCategoryWindow}
-            >
-              Añadir Categoría
-            </button>
-
-            {newItemWindow ? (
-              <NewItemWindow setVisibility={toggleItemWindow} />
-            ) : null}
-            {newCategoryWindow ? (
-              <NewCategoryWindow setVisibility={toggleCategoryWindow} />
-            ) : null}
-          </div>
-        ) : null}
+        <CartaEditMenu show={showEditOptions} />
         {carta.length > 0 ? (
           <Table id="tablaCarta" responsive>
             {carta.map((category) => (

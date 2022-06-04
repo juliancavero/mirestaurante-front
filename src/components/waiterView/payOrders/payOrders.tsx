@@ -23,7 +23,7 @@ export function PayOrders() {
   return (
     <div id="allOrders">
       {allOrders && allOrders.length > 0 ? (
-        <div>
+        <div className="mx-5">
           <div className="row m-auto my-3">
             <h1 className="col-md-12 m-auto">
               Listado de pedidos pendientes de pago

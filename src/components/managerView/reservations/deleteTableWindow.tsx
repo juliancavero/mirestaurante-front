@@ -27,7 +27,6 @@ export function DeleteTableWindow({ setVisibility }: props) {
       const bod = {
         id: deleteTable,
       };
-      console.log(bod);
       deleteReservationTable(bod).then((response) => {
         window.alert("Mesa eliminada correctamente");
         window.location.reload();

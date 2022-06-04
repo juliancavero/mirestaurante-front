@@ -30,7 +30,7 @@ export function Invoice({ orderData }: InvoiceProps) {
           <td></td>
           <td></td>
           <td></td>
-          <td>{orderData?.totalCost} €</td>
+          <td className="h3">{orderData?.totalCost} €</td>
         </tr>
       </tbody>
     </Table>

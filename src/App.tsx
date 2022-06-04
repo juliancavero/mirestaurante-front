@@ -33,18 +33,18 @@ function App() {
     <Router>
       <div>
         <nav>
-          <div className="navBar d-flex justify-content-around">
+          <div className="navBar d-flex justify-content-around px-5">
             <div className="m-auto">
               <Link className="link" to="/">
                 <HomeSVG />
               </Link>
+              <GoBackButton />
             </div>
-            <div className="m-auto d-none d-sm-block">
+            <div className="m-auto">
               <MiRestauranteLogo />
             </div>
-            <div className="m-auto d-flex">
+            <div className="m-auto">
               <LogInOutButton />
-              <GoBackButton />
             </div>
           </div>
         </nav>

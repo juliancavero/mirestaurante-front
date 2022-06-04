@@ -29,7 +29,6 @@ export function NewOrder() {
 
   useEffect(() => {
     let sum = 0;
-    console.log("nuevo item");
     orderCart.forEach((item) => (sum += item.price * item.quantity));
     setFinalPrice(parseFloat(sum.toFixed(2)));
   }, [orderCart]);
