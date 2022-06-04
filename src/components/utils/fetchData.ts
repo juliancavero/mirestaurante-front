@@ -27,7 +27,7 @@ export const ip = "http://localhost:3099";
 
 const production = true;
 
-const url = production ? "http://api.mirestaurante.teamcamp.ovh" : ip;
+const url = production ? "https://api.mirestaurante.teamcamp.ovh" : ip;
 
 async function fetchData<Parameters, Response>(
   method: "GET" | "POST" | "PUT" | "DELETE",
