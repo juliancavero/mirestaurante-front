@@ -53,7 +53,7 @@ export function RegisterPage() {
   function successfullLogin() {
     setMessage("Usuario registrado con éxito");
     setShowSuccessfullLogin(true);
-    setInterval(() => window.location.reload(), 2500);
+    setInterval(() => window.location.assign("/"), 2500);
   }
 
   function wrongKey() {
@@ -87,6 +87,7 @@ export function RegisterPage() {
             type={"text"}
           ></input>
           <HandleResponseComponent
+            color={"red"}
             show={showUsernameExists}
             message={message}
           />
@@ -115,12 +116,17 @@ export function RegisterPage() {
         <div className="row my-2">
           <label htmlFor="secretKey">Clave de confirmación</label>
           <input required name="secretKey" placeholder="" type={"text"}></input>
-          <HandleResponseComponent show={showWrongKey} message={message} />
+          <HandleResponseComponent
+            color={"red"}
+            show={showWrongKey}
+            message={message}
+          />
         </div>
         <div className="row my-3">
           <button type={"submit"}>Registro</button>
         </div>
         <HandleResponseComponent
+          color={"green"}
           show={showSuccessfullLogin}
           message={message}
         />

@@ -105,7 +105,7 @@ export type Employee = {
 };
 
 export type PasswordResponse = {
-  password: string;
+  key: string;
 };
 
 export type RegisterUser = {

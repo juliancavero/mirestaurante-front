@@ -1,12 +1,14 @@
 type HandleResponseComponentProps = {
   show: boolean;
   message: string;
+  color: string;
 };
 
 export function HandleResponseComponent({
   show,
   message,
+  color,
 }: HandleResponseComponentProps) {
   if (!show) return null;
-  return <h1>{message}</h1>;
+  return <span className={color}>{message}</span>;
 }

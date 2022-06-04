@@ -12,7 +12,11 @@ export function NewEmployee() {
 
   useEffect(() => {
     getPassword().then((resp) => {
-      setPassword(resp.password);
+      if ("key" in resp) {
+        setPassword(resp.key);
+      } else {
+        setPassword("Failed to fetch data.");
+      }
     });
   }, []);
 

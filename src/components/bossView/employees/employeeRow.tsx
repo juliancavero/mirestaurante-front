@@ -34,9 +34,15 @@ export function EmployeeRow({
             </tr>
           </thead>
           <tr>
-            <th>Nombre</th>
-            <th>Salario</th>
-            <th>Nombre de Usuario</th>
+            <th>
+              <h3>Nombre</h3>
+            </th>
+            <th>
+              <h3>Salario</h3>
+            </th>
+            <th>
+              <h3>Nombre de Usuario</h3>
+            </th>
           </tr>
           {employees.map((each) => (
             <tr

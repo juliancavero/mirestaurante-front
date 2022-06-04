@@ -23,11 +23,17 @@ export function IncomeData() {
 
   useEffect(() => {
     getDailyIncomeData().then((response) => {
-      let totalIncomeData = response.dailyData.map(
-        (each) => each.totalIncome[0]
-      );
-      setData1(totalIncomeData);
-      setData1Show(true);
+      if (
+        "dailyData" in response &&
+        Array.isArray(response.dailyData) &&
+        response.dailyData.length > 0
+      ) {
+        let totalIncomeData = response.dailyData.map(
+          (each) => each.totalIncome[0]
+        );
+        setData1(totalIncomeData);
+        setData1Show(true);
+      }
     });
   }, []);
 

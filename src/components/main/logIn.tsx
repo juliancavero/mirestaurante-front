@@ -1,8 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./homeMenu.css";
+import { NotFoundUser } from "./notFoundUser";
 
 export function LogIn() {
+  const [alreadyLogged, setAlreadyLogged] = useState(false);
+
+  useEffect(() => {
+    const role = window.localStorage.getItem("role");
+    if (role) {
+      setAlreadyLogged(true);
+    }
+  });
+  return (
+    <>
+      <AlreadyLoggedHandler show={alreadyLogged} />
+      <LoginHandler show={!alreadyLogged} />
+    </>
+  );
+}
+type LoginHandlerProps = {
+  show: boolean;
+};
+function LoginHandler({ show }: LoginHandlerProps) {
+  const [notFoundUserShow, setNotFoundUserShow] = useState(false);
+  const [message, setMessage] = useState("");
+  if (!show) return null;
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     const { username, password } = document.forms[0];
@@ -25,8 +48,13 @@ export function LogIn() {
           if (!saveToken) {
             return window.alert("Fallo al almacenar las credenciales.");
           } else {
+            setNotFoundUserShow(true);
+            setMessage("Login correcto");
             handleRedirect();
           }
+        } else if ("userName" in respuesta) {
+          setMessage("Credenciales de acceso incorrectas");
+          setNotFoundUserShow(true);
         }
       });
   }
@@ -59,6 +87,7 @@ export function LogIn() {
     }
     return false;
   }
+
   return (
     <div className="container mainMenu">
       <div className="h3 h-75 d-flex justify-content-center align-items-center">
@@ -80,6 +109,7 @@ export function LogIn() {
             ></input>
           </div>
           <div className="row my-3">
+            <NotFoundUser show={notFoundUserShow} message={message} />
             <button type={"submit"}>Log In</button>
           </div>
           <div className="d-flex justify-content-end my-2">
@@ -89,4 +119,12 @@ export function LogIn() {
       </div>
     </div>
   );
+}
+
+type AlreadyProps = {
+  show: boolean;
+};
+function AlreadyLoggedHandler({ show }: AlreadyProps) {
+  if (!show) return null;
+  return <Navigate to={"/"} replace />;
 }

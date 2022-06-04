@@ -20,9 +20,9 @@ import { TableType } from "./types";
 
 type CategoriesType = string[];
 
-export const ip = "http://192.168.1.56:3099";
+export const ip = "http://localhost:3099";
 
-const production = false;
+const production = true;
 
 const url = production ? "http://api.mirestaurante.teamcamp.ovh" : ip;
 

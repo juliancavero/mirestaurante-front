@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react";
 import { ItemSendType } from "../../utils/types";
+import { OrderHistoryTable } from "./orderHistoryTable";
 
-type Order = {
+export type Order = {
   name: string;
   totalCost: number;
   date: Date;
   items: ItemSendType[];
 };
 export function OrderHistory() {
-  const [orders, setOrders] = useState<Order[]>();
+  const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3099/orderHistory")
-      .then((response) => response.json as unknown as Order[])
+      .then((response) => response.json())
       .then((response) => {
-        setOrders(response);
+        if (
+          "orderHistory" in response &&
+          Array.isArray(response.orderHistory) &&
+          response.orderHistory.length > 0
+        ) {
+          setOrders(response.orderHistory);
+        }
       });
   }, []);
-  return <>{orders ? orders.map((each) => <h1>{each.name}</h1>) : null}</>;
+  return <OrderHistoryTable orders={orders} />;
 }

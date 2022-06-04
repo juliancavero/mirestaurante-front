@@ -16,8 +16,8 @@ import { PayOrders as ManagerPayOrders } from "./components/managerView/payOrder
 import { DetailedOrder as ManagerDetailedOrder } from "./components/managerView/payOrders/detailedOrder";
 
 import { LogIn } from "./components/main/logIn";
-import { ReactComponent as HomeSVG } from "./homeIcon.svg";
-import { ReactComponent as MiRestauranteLogo } from "./mirestaurantelogo.svg";
+import { ReactComponent as HomeSVG } from "./publicImages/homeIcon.svg";
+import { ReactComponent as MiRestauranteLogo } from "./publicImages/mirestaurantelogo.svg";
 import { GoBackButton } from "./components/main/goBack";
 import { ManageEmployees } from "./components/bossView/employees/manageEmployees";
 import { MyCompanyData } from "./components/bossView/mycompany/myCompanyData";
@@ -26,6 +26,7 @@ import { RegisterPage } from "./components/main/registerPage";
 import { ProtectedRoute } from "./components/main/protectedRoute";
 import { LogInOutButton } from "./components/main/loginButton";
 import { NotFound } from "./components/main/notFound";
+import { HandleRootPage } from "./components/main/handleRootPage";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
                 <HomeSVG />
               </Link>
             </div>
-            <div className="m-auto">
+            <div className="m-auto d-none d-sm-block">
               <MiRestauranteLogo />
             </div>
             <div className="m-auto d-flex">
@@ -182,7 +183,7 @@ function App() {
           />
 
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/" element={<LogIn />} />
+          <Route path="/" element={<HandleRootPage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
