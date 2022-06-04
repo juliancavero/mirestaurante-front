@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AreYouSureWindow } from "../../utils/areYouSureWindow";
 import { DeleteButton } from "../../utils/DeleteButton";
-import { genericFetch, ip } from "../../utils/fetchData";
+import { genericFetch, url } from "../../utils/fetchData";
 import { ItemResponse } from "../../utils/types";
 
 type CartaItemManager = ItemResponse & {
@@ -36,7 +36,7 @@ export function CartaItem(props: CartaItemManager) {
         <img
           className="cartaImage  m-auto"
           alt={name}
-          src={ip + "/statics/" + photo}
+          src={url + "/statics/" + photo}
         ></img>
       </td>
       <td className="col-md-1 d-flex justify-content-center align-items-center">

@@ -1,4 +1,4 @@
-import { ip } from "../../utils/fetchData";
+import { url } from "../../utils/fetchData";
 import { ItemResponse } from "../../utils/types";
 
 export function CartaItem(props: ItemResponse) {
@@ -12,7 +12,7 @@ export function CartaItem(props: ItemResponse) {
         <img
           className="cartaImage  m-auto"
           alt={name}
-          src={ip + "/statics/" + photo}
+          src={url + "/statics/" + photo}
         ></img>
       </td>
     </tr>
