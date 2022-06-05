@@ -130,3 +130,7 @@ export type LoginResponse = {
 export type OrderHistoryType = {
   orderHistory: Order[];
 };
+
+export type DeleteEmployeeResponse = {
+  userName: string;
+};

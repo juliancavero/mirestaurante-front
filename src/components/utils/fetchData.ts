@@ -2,6 +2,7 @@ import {
   CartaType,
   DailyDataType,
   DeleteCategory,
+  DeleteEmployeeResponse,
   DeleteItem,
   DeleteTableType,
   Employee,
@@ -195,6 +196,16 @@ export function genericFetch() {
     return fetchData<string, OrderHistoryType>("GET", "/orderHistory");
   }
 
+  async function deleteEmployee(
+    bod: DeleteEmployeeResponse
+  ): Promise<DeleteEmployeeResponse> {
+    return fetchData<DeleteEmployeeResponse, DeleteEmployeeResponse>(
+      "DELETE",
+      "/employees",
+      bod
+    );
+  }
+
   return {
     getCartaData,
     getCartaCategories,
@@ -221,5 +232,6 @@ export function genericFetch() {
     registerUser,
     loginServer,
     getOrderHistory,
+    deleteEmployee,
   };
 }
