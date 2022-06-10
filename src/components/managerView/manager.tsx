@@ -4,7 +4,7 @@ import "./mainpagestyle.css";
 export function Manager() {
   return (
     <div id="main container">
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-sm-6 d-flex flex-column fourgrids align-items-center">
           <MenuButton content="RESERVA DE MESAS" url="/manager/reservas" />
           <img

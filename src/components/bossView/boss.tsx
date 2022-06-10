@@ -3,7 +3,7 @@ import { MenuButton } from "../utils/menuButton";
 export function Boss() {
   return (
     <div id="main container">
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-sm-6 d-flex flex-column fourgrids align-items-center">
           <MenuButton content="EVOLUCIÓN ECONÓMICA" url="/boss/income" />
           <img
