@@ -23,7 +23,6 @@ import { OrderType } from "./types";
 import { TableType } from "./types";
 
 type CategoriesType = string[];
-
 export const ip = "http://localhost:3099";
 
 const production = true;
